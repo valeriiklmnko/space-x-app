@@ -51,22 +51,27 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as! SpaceShipTableViewCell
         
-        if let label = cell.viewWithTag(1) as? UILabel {
-            switch indexPath.row {
-            case 0:
-                label.text = "Mission: \(spaceShips[0].missionName), Year: \(spaceShips[0].launchYear)"
-            case 1:
-                label.text = "Mission: \(spaceShips[1].missionName), Year: \(spaceShips[1].launchYear)"
-            case 2:
-                label.text = "Mission: \(spaceShips[2].missionName), Year: \(spaceShips[2].launchYear)"
-            case 3:
-                label.text = "Mission: \(spaceShips[3].missionName), Year: \(spaceShips[3].launchYear)"
-            default:
-                label.text = "Correct Space Ship not found"
-            }
-        }
+        cell.cellMissionLabel.text = "Mission: \(spaceShips[indexPath.row].missionName)"
+        cell.cellYearLabel.text = "Year: \(spaceShips[indexPath.row].launchYear)"
+        cell.cellImageView.image = UIImage(named: "rocket-logo")
+        
+        
+//        if let label = cell.viewWithTag(1) as? UILabel {
+//            switch indexPath.row {
+//            case 0:
+//                label.text = "Mission: \(spaceShips[0].missionName), Year: \(spaceShips[0].launchYear)"
+//            case 1:
+//                label.text = "Mission: \(spaceShips[1].missionName), Year: \(spaceShips[1].launchYear)"
+//            case 2:
+//                label.text = "Mission: \(spaceShips[2].missionName), Year: \(spaceShips[2].launchYear)"
+//            case 3:
+//                label.text = "Mission: \(spaceShips[3].missionName), Year: \(spaceShips[3].launchYear)"
+//            default:
+//                label.text = "Correct Space Ship not found"
+//            }
+//        }
         
         return cell
     }
