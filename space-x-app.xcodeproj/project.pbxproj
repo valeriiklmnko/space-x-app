@@ -15,6 +15,7 @@
 		15353C992403FBF800A4514D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15353C972403FBF800A4514D /* LaunchScreen.storyboard */; };
 		15353CA12403FD3B00A4514D /* SpaceShipClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA02403FD3B00A4514D /* SpaceShipClass.swift */; };
 		15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */; };
+		153870252405987F0077B84F /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870242405987F0077B84F /* MissionDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		15353C9A2403FBF800A4514D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15353CA02403FD3B00A4514D /* SpaceShipClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipClass.swift; sourceTree = "<group>"; };
 		15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipTableViewCell.swift; sourceTree = "<group>"; };
+		153870242405987F0077B84F /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				15353C8E2403FBF700A4514D /* SceneDelegate.swift */,
 				15353C902403FBF700A4514D /* TableViewController.swift */,
 				15353CA02403FD3B00A4514D /* SpaceShipClass.swift */,
+				153870242405987F0077B84F /* MissionDetailView.swift */,
 				15353C922403FBF700A4514D /* Main.storyboard */,
 				15353C952403FBF800A4514D /* Assets.xcassets */,
 				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				15353CA12403FD3B00A4514D /* SpaceShipClass.swift in Sources */,
 				15353C8D2403FBF700A4514D /* AppDelegate.swift in Sources */,
 				15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */,
+				153870252405987F0077B84F /* MissionDetailView.swift in Sources */,
 				15353C8F2403FBF700A4514D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
