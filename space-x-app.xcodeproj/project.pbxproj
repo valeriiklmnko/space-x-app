@@ -16,6 +16,7 @@
 		15353CA12403FD3B00A4514D /* SpaceShipClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA02403FD3B00A4514D /* SpaceShipClass.swift */; };
 		15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */; };
 		153870252405987F0077B84F /* MissionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870242405987F0077B84F /* MissionDetailView.swift */; };
+		153870292408295C0077B84F /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870282408295C0077B84F /* AppData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		15353CA02403FD3B00A4514D /* SpaceShipClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipClass.swift; sourceTree = "<group>"; };
 		15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipTableViewCell.swift; sourceTree = "<group>"; };
 		153870242405987F0077B84F /* MissionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailView.swift; sourceTree = "<group>"; };
+		153870282408295C0077B84F /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				15353C8C2403FBF700A4514D /* AppDelegate.swift */,
-				15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */,
 				15353C8E2403FBF700A4514D /* SceneDelegate.swift */,
 				15353C902403FBF700A4514D /* TableViewController.swift */,
+				15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */,
 				15353CA02403FD3B00A4514D /* SpaceShipClass.swift */,
 				153870242405987F0077B84F /* MissionDetailView.swift */,
+				153870282408295C0077B84F /* AppData.swift */,
 				15353C922403FBF700A4514D /* Main.storyboard */,
 				15353C952403FBF800A4514D /* Assets.xcassets */,
 				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */,
 				153870252405987F0077B84F /* MissionDetailView.swift in Sources */,
 				15353C8F2403FBF700A4514D /* SceneDelegate.swift in Sources */,
+				153870292408295C0077B84F /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

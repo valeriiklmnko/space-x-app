@@ -21,38 +21,27 @@ class MissionDetailView: UIViewController {
     @IBOutlet weak var launchSite: UILabel!
     @IBOutlet weak var site: UILabel!
     
+    var selectedSpaceShip: SpaceShip?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configDetailView(spaceShip: tv.spaceShips[3])
+        configDetailView()
     }
     
-    let tv = TableViewController()
-    
-    func configDetailView(spaceShip: SpaceShip) {
+    func configDetailView() {
         launchMission.text = "Mission:"
-        launchMission.lineBreakMode = .byClipping
-        missionName.text = spaceShip.missionName
-        missionName.lineBreakMode = .byClipping
+        missionName.text = selectedSpaceShip?.missionName
         
         launchYear.text = "Year:"
-        launchYear.lineBreakMode = .byClipping
-        year.text = spaceShip.launchYear
-        year.lineBreakMode = .byClipping
+        year.text = selectedSpaceShip?.launchYear
         
         rocketNameTitle.text = "Rocket Name:"
-        rocketNameTitle.lineBreakMode = .byClipping
-        rocketName.text = spaceShip.rocketName
-        rocketName.lineBreakMode = .byClipping
+        rocketName.text = selectedSpaceShip?.rocketName
         
         launchDate.text = "Launch Date:"
-        launchDate.lineBreakMode = .byClipping
-        date.text = spaceShip.launchDate
-        date.lineBreakMode = .byClipping
+        date.text = selectedSpaceShip?.launchDate
         
         launchSite.text = "Lauch Site:"
-        launchSite.lineBreakMode = .byClipping
-        site.text = spaceShip.launchSite
-        site.lineBreakMode = .byClipping
+        site.text = selectedSpaceShip?.launchSite
     }
-
 }

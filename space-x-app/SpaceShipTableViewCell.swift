@@ -18,13 +18,11 @@ class SpaceShipTableViewCell: UITableViewCell {
     
     func configSpaceShipCell(spaceShip: SpaceShip) {
         missionTitle.text = "Mission:"
-        missionTitle.lineBreakMode = .byClipping
-        yearTitle.text = "Year:"
-        yearTitle.lineBreakMode = .byClipping
         missionLabel.text = spaceShip.missionName
-        missionLabel.lineBreakMode = .byClipping
+        
+        yearTitle.text = "Year:"
         yearLabel.text = spaceShip.launchYear
-        yearLabel.lineBreakMode = .byClipping
-        cellImageView.image = UIImage(named: "rocket-logo")
+        
+//        cellImageView.image = UIImage(named: "rocket-logo")
     }
 }
