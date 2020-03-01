@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MissionDetailView: UIViewController {
+class MissionDetailViewController: UIViewController {
 
     @IBOutlet weak var launchMission: UILabel!
     @IBOutlet weak var missionName: UILabel!
@@ -36,12 +36,12 @@ class MissionDetailView: UIViewController {
         year.text = selectedSpaceShip?.launchYear
         
         rocketNameTitle.text = "Rocket Name:"
-        rocketName.text = selectedSpaceShip?.rocketName
+        rocketName.text = selectedSpaceShip?.rocket.rocketName
         
         launchDate.text = "Launch Date:"
         date.text = selectedSpaceShip?.launchDate
         
         launchSite.text = "Lauch Site:"
-        site.text = selectedSpaceShip?.launchSite
+        site.text = selectedSpaceShip?.launchSite.siteName
     }
 }
