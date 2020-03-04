@@ -23,7 +23,7 @@ class SpaceShipTableViewCell: UITableViewCell {
         yearTitle.text = "Year:"
         yearLabel.text = spaceShip.launchYear
         
-        cellImageView.image = UIImage(named: "rocket-logo")
+//        cellImageView.image = UIImage(named: "rocket-logo")
     }
 }
 

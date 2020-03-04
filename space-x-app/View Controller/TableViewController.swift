@@ -8,15 +8,25 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class TableViewController: UITableViewController {
     var ships: [SpaceShip] = []
+    private let apiClient = ApiClient.shared
+    let defaultError = ApiClient.DefaultError.defaultError
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchShips()
+        apiClient.fetchShips { (result, error) in
+            guard let result = result else {
+                self.showAlert(message: self.apiClient.mapErrorFrom(error: error ?? self.defaultError).rawValue)
+                return
+            }
+            self.ships = result
+            self.tableView.reloadData()
+        }
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ships.count
 //        return ships.count - 103
@@ -42,16 +52,11 @@ class TableViewController: UITableViewController {
 }
 
 extension TableViewController {
-    func fetchShips() {
-        AF.request("https://api.spacexdata.com/v3/launches")
-            .validate()
-            .responseDecodable(of: [SpaceShip].self) { (response) in
-                guard let repuestedShips = response.value else { return }
-                self.ships = repuestedShips
-//                print(self.ships)
-                self.tableView.reloadData()
-                
-        }
-        
+    func showAlert(message: String?) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
