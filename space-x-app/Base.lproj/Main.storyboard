@@ -8,105 +8,122 @@
     </dependencies>
     <scenes>
         <!--SpaceX Missions-->
-        <scene sceneID="Wtl-UK-Z2h">
+        <scene sceneID="kil-OJ-SSa">
             <objects>
-                <tableViewController id="tN4-IZ-pQP" customClass="TableViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Ty-6B-DvH">
+                <viewController id="8Od-xl-jjp" customClass="SpaceShipViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tB8-fo-VhQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpaceShipCell" id="5Fr-e7-fG5" customClass="SpaceShipTableViewCell" customModule="SpaceX_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="95"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Fr-e7-fG5" id="DZy-rR-T5P">
-                                    <rect key="frame" x="0.0" y="0.0" width="348" height="95"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vXE-2P-aqq">
-                                            <rect key="frame" x="21" y="3" width="314" height="89"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Ty-6B-DvH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SpaceShipCell" id="5Fr-e7-fG5" customClass="SpaceShipTableViewCell" customModule="SpaceX_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Fr-e7-fG5" id="DZy-rR-T5P">
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="95"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-ob-0bl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="89"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="90" id="0l5-cX-xBu"/>
-                                                        <constraint firstAttribute="width" constant="90" id="x8x-NY-4ys"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-tC-xO6">
-                                                    <rect key="frame" x="102" y="0.0" width="212" height="89"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="vXE-2P-aqq">
+                                                    <rect key="frame" x="20" y="3" width="316" height="89"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZxB-F6-H6h">
-                                                            <rect key="frame" x="0.0" y="0.0" width="212" height="43"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-ob-0bl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="89"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="x8x-NY-4ys"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SOA-tC-xO6">
+                                                            <rect key="frame" x="102" y="0.0" width="214" height="89"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6x-2D-0RG">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="212" height="24"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MissionName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsG-P4-cof">
-                                                                    <rect key="frame" x="0.0" y="25" width="212" height="18"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZxB-F6-H6h">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="214" height="43"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6x-2D-0RG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="214" height="24"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MissionName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsG-P4-cof">
+                                                                            <rect key="frame" x="0.0" y="25" width="214" height="18"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rvM-6a-cKJ">
+                                                                    <rect key="frame" x="0.0" y="46" width="214" height="43"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yko-ys-CEs">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="214" height="24"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MissionYear" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wej-Kf-DoY">
+                                                                            <rect key="frame" x="0.0" y="25" width="214" height="18"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
-                                                        </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rvM-6a-cKJ">
-                                                            <rect key="frame" x="0.0" y="46" width="212" height="43"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yko-ys-CEs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="212" height="24"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MissionYear" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wej-Kf-DoY">
-                                                                    <rect key="frame" x="0.0" y="25" width="212" height="18"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="ZxB-F6-H6h" firstAttribute="trailing" secondItem="SOA-tC-xO6" secondAttribute="trailingMargin" id="Eof-v7-b1C"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="ZxB-F6-H6h" firstAttribute="trailing" secondItem="SOA-tC-xO6" secondAttribute="trailingMargin" id="Eof-v7-b1C"/>
+                                                        <constraint firstItem="ggi-ob-0bl" firstAttribute="leading" secondItem="vXE-2P-aqq" secondAttribute="leadingMargin" id="Lhv-sn-7Y3"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ggi-ob-0bl" firstAttribute="leading" secondItem="vXE-2P-aqq" secondAttribute="leadingMargin" id="Lhv-sn-7Y3"/>
+                                                <constraint firstAttribute="bottom" secondItem="vXE-2P-aqq" secondAttribute="bottom" constant="3" id="ISh-dC-C3H"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vXE-2P-aqq" secondAttribute="trailing" constant="5" id="N6S-Z3-Zj8"/>
+                                                <constraint firstItem="vXE-2P-aqq" firstAttribute="leading" secondItem="DZy-rR-T5P" secondAttribute="leadingMargin" constant="5" id="TVz-XQ-wbZ"/>
+                                                <constraint firstItem="vXE-2P-aqq" firstAttribute="top" secondItem="DZy-rR-T5P" secondAttribute="top" constant="3" id="fkM-cf-2Q3"/>
                                             </constraints>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="vXE-2P-aqq" secondAttribute="bottom" constant="3" id="ISh-dC-C3H"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="vXE-2P-aqq" secondAttribute="trailing" constant="5" id="N6S-Z3-Zj8"/>
-                                        <constraint firstItem="vXE-2P-aqq" firstAttribute="leading" secondItem="DZy-rR-T5P" secondAttribute="leadingMargin" constant="5" id="TVz-XQ-wbZ"/>
-                                        <constraint firstItem="vXE-2P-aqq" firstAttribute="top" secondItem="DZy-rR-T5P" secondAttribute="top" constant="3" id="fkM-cf-2Q3"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="ggi-ob-0bl" id="lsA-Xy-ny5"/>
+                                            <outlet property="missionLabel" destination="JsG-P4-cof" id="bKS-Qs-NZR"/>
+                                            <outlet property="missionTitle" destination="k6x-2D-0RG" id="I1g-Vx-UXO"/>
+                                            <outlet property="yearLabel" destination="wej-Kf-DoY" id="4Xw-Gt-zzt"/>
+                                            <outlet property="yearTitle" destination="Yko-ys-CEs" id="9YP-HZ-e5G"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="OAA-3W-Quh"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SpaceX Missions" id="QVG-fv-YuF">
+                        <barButtonItem key="rightBarButtonItem" id="ONr-jp-XMG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ftn-9Z-65g">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Filter"/>
                                 <connections>
-                                    <outlet property="cellImageView" destination="ggi-ob-0bl" id="lsA-Xy-ny5"/>
-                                    <outlet property="missionLabel" destination="JsG-P4-cof" id="bKS-Qs-NZR"/>
-                                    <outlet property="missionTitle" destination="k6x-2D-0RG" id="I1g-Vx-UXO"/>
-                                    <outlet property="yearLabel" destination="wej-Kf-DoY" id="4Xw-Gt-zzt"/>
-                                    <outlet property="yearTitle" destination="Yko-ys-CEs" id="9YP-HZ-e5G"/>
+                                    <action selector="filterButton:" destination="8Od-xl-jjp" eventType="touchUpInside" id="qjd-Ny-KCH"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="tN4-IZ-pQP" id="BzG-0y-d0r"/>
-                            <outlet property="delegate" destination="tN4-IZ-pQP" id="ieO-sO-L9N"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="SpaceX Missions" id="wz8-sU-E5s"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cyF-ai-vcd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="spaceShipTableView" destination="3Ty-6B-DvH" id="e3R-o7-5fP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1n9-QC-bMJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55.072463768115945" y="-228.34821428571428"/>
+            <point key="canvasLocation" x="41" y="-228"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bLN-9e-LOI">
@@ -117,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tN4-IZ-pQP" kind="relationship" relationship="rootViewController" id="Ld9-GS-Ohj"/>
+                        <segue destination="8Od-xl-jjp" kind="relationship" relationship="rootViewController" id="c4c-RZ-7uC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huD-EF-lRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,7 +288,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Site" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="MNa-IB-hg8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Site" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MNa-IB-hg8">
                                                         <rect key="frame" x="0.0" y="27" width="275" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>

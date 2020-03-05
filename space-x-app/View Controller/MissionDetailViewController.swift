@@ -39,9 +39,14 @@ class MissionDetailViewController: UIViewController {
         rocketName.text = selectedSpaceShip?.rocket.rocketName
         
         launchDate.text = "Launch Date:"
-        date.text = selectedSpaceShip?.launchDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
+        let formattedLaunchDate: Date? = dateFormatter.date(from: selectedSpaceShip?.launchDate ?? "Date not found")
+        date.text = dateFormatter.string(from: formattedLaunchDate ?? Date())
+//        date.text = selectedSpaceShip?.launchDate
         
         launchSite.text = "Lauch Site:"
         site.text = selectedSpaceShip?.launchSite.siteName
     }
 }
+

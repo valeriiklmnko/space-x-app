@@ -8,16 +8,23 @@
 
 import Foundation
 import Alamofire
+import MBProgressHUD
 
 class ApiClient {
     static let shared = ApiClient()
     
     let url = "https://api.spacexdata.com/v3/launches"
     
-    func fetchShips(completionHandler: @escaping ([SpaceShip]?, Error?) -> ()) {
+    func fetchShips(
+        showLoader: @escaping () -> (),
+        hideLoader: @escaping () -> (),
+        completionHandler: @escaping ([SpaceShip]?, Error?) -> ()
+    ) {
+        showLoader()
         AF.request(url, method: .get)
             .validate()
             .responseDecodable(of: [SpaceShip].self) { (response) in
+                hideLoader()
                 switch response.result {
                 case .success:
                     guard let fetchedShips = response.value else { return }
