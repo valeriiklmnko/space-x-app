@@ -16,8 +16,6 @@ class SpaceShipViewController: UIViewController {
     // MARK: Variables and Constants
     var fetchedShips = [SpaceShip]()
     var fetchedShipsData = [SpaceShip]()
-    var sortedShipsByMissionName = [SpaceShip]()
-    var sortedShipsByLaunchYear = [SpaceShip]()
     private let apiClient = ApiClient.shared
     
     override func viewDidLoad() {
@@ -159,7 +157,7 @@ extension SpaceShipViewController {
 extension SpaceShipViewController {
     // MARK: Filtering Methods
     func filterShipsByMissionName() {
-        sortedShipsByMissionName = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
+        let sortedShipsByMissionName = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
             shipOne.missionName < shipTwo.missionName
         })
         fetchedShips = sortedShipsByMissionName
@@ -168,7 +166,7 @@ extension SpaceShipViewController {
     
     func filterShipsByLaunchYear() {
         fetchedShips = fetchedShipsData
-        sortedShipsByLaunchYear = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
+        let sortedShipsByLaunchYear = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
             shipOne.launchYear < shipTwo.launchYear
         })
         fetchedShips = sortedShipsByLaunchYear
