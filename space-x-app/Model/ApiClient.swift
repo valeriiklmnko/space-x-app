@@ -8,50 +8,49 @@
 
 import Foundation
 import Alamofire
-import MBProgressHUD
 
 class ApiClient {
     static let shared = ApiClient()
+    let launchesURL = URL(string: "https://api.spacexdata.com/v3/launches")
+    let decoder = JSONDecoder()
     
-    let url = "https://api.spacexdata.com/v3/launches"
-    
-    func fetchShips(
-        showLoader: @escaping () -> (),
-        hideLoader: @escaping () -> (),
-        completionHandler: @escaping ([SpaceShip]?, Error?) -> ()
-    ) {
-        showLoader()
-        AF.request(url, method: .get)
+    func fetchShips(completionHandler: @escaping ([SpaceShip]?, SpaceError?) -> ()) {
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Custom)
+        AF.request(launchesURL ?? "https://api.spacexdata.com", method: .get)
             .validate()
-            .responseDecodable(of: [SpaceShip].self) { (response) in
-                hideLoader()
+            .responseDecodable(of: [SpaceShip].self, decoder: decoder) { (response) in
                 switch response.result {
                 case .success:
-                    guard let fetchedShips = response.value else { return }
-                    completionHandler(fetchedShips, nil)
+                    completionHandler(response.value, nil)
                     print("Successful request")
                 case .failure:
-                    guard let responseError = response.error else { return }
-                    completionHandler(nil, responseError)
-                    print("Request failed \(responseError.localizedDescription)")
+                    completionHandler(nil, SpaceError.genericError)
+                    print("Request failed \(SpaceError.genericError)")
                 }
         }
     }
     
-    enum SpaceError: String {
-        case genericError = "sorry bro, something is broken"
-    }
-    
-    enum DefaultError: Error {
-        case defaultError
-    }
-    
-    func mapErrorFrom(error: Error ) -> SpaceError {
-        switch error {
-        default:
-            return SpaceError.genericError
+    // MARK: Error mapping
+    enum SpaceError: Error {
+        case genericError
+        
+        func getError() -> String {
+            switch self {
+            case .genericError:
+                return "Sorry bro"
+            }
         }
-     }
+    }
     
     private init() {}
+}
+
+extension DateFormatter {
+  static let iso8601Custom: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    formatter.calendar = Calendar(identifier: .iso8601)
+    formatter.timeZone = TimeZone(identifier: "UTC")
+    return formatter
+  }()
 }

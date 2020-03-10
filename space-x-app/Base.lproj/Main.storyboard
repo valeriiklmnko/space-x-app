@@ -106,13 +106,23 @@
                         <viewLayoutGuide key="safeArea" id="OAA-3W-Quh"/>
                     </view>
                     <navigationItem key="navigationItem" title="SpaceX Missions" id="QVG-fv-YuF">
-                        <barButtonItem key="rightBarButtonItem" id="ONr-jp-XMG">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="ONr-jp-XMG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ftn-9Z-65g">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Filter"/>
                                 <connections>
                                     <action selector="filterButton:" destination="8Od-xl-jjp" eventType="touchUpInside" id="qjd-Ny-KCH"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="rew-tL-fgr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nlg-nh-szM">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset filter"/>
+                                <connections>
+                                    <action selector="resetFilterButton:" destination="8Od-xl-jjp" eventType="touchUpInside" id="jYC-hq-xIm"/>
                                 </connections>
                             </button>
                         </barButtonItem>

@@ -15,15 +15,10 @@ class SpaceShipTableViewCell: UITableViewCell {
     @IBOutlet weak var missionTitle: UILabel!
     @IBOutlet weak var yearTitle: UILabel!
     
-    
     func configSpaceShipCell(spaceShip: SpaceShip) {
         missionTitle.text = "Mission:"
         missionLabel.text = spaceShip.missionName
-        
         yearTitle.text = "Year:"
         yearLabel.text = spaceShip.launchYear
-        
-//        cellImageView.image = UIImage(named: "rocket-logo")
     }
 }
-

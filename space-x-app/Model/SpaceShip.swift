@@ -6,11 +6,11 @@
 //  Copyright © 2020 Valerii Klymenko. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class SpaceShip: Decodable {
+class SpaceShip: Codable {
     let rocket: Rocket
-    let launchDate: String
+    let launchDate: Date
     let launchYear: String
     let missionName: String
     let launchSite: Site
@@ -21,5 +21,21 @@ class SpaceShip: Decodable {
         case launchYear = "launch_year"
         case missionName = "mission_name"
         case launchSite = "launch_site"
+    }
+}
+
+class Rocket: Codable {
+    let rocketName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case rocketName = "rocket_name"
+    }
+}
+
+class Site: Codable {
+    let siteName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case siteName = "site_name_long"
     }
 }

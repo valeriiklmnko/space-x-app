@@ -15,8 +15,6 @@
 		15353CA12403FD3B00A4514D /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA02403FD3B00A4514D /* SpaceShip.swift */; };
 		15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */; };
 		153870252405987F0077B84F /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870242405987F0077B84F /* MissionDetailViewController.swift */; };
-		155C026E2409B2B00028E94A /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C026D2409B2B00028E94A /* Rocket.swift */; };
-		155C02742409B7EB0028E94A /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C02732409B7EB0028E94A /* Site.swift */; };
 		155C02A2240E830C0028E94A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C02A1240E830C0028E94A /* ApiClient.swift */; };
 		15DA25DF2411105300A0BB97 /* SpaceShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */; };
 		2D943FDA842C1F86CD3249F4 /* Pods_space_x_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23B5E55469F0B508CE4AEDC /* Pods_space_x_app.framework */; };
@@ -33,8 +31,6 @@
 		15353CA02403FD3B00A4514D /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipTableViewCell.swift; sourceTree = "<group>"; };
 		153870242405987F0077B84F /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
-		155C026D2409B2B00028E94A /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
-		155C02732409B7EB0028E94A /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		155C02A1240E830C0028E94A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipViewController.swift; sourceTree = "<group>"; };
 		19970148C9AE9D866075CCA7 /* Pods-space-x-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-space-x-app.debug.xcconfig"; path = "Target Support Files/Pods-space-x-app/Pods-space-x-app.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +73,8 @@
 			children = (
 				15353C8C2403FBF700A4514D /* AppDelegate.swift */,
 				15353C8E2403FBF700A4514D /* SceneDelegate.swift */,
-				155C026A24098C5E0028E94A /* View Controller */,
+				15DA25E22411710100A0BB97 /* Views */,
+				155C026A24098C5E0028E94A /* View Controllers */,
 				155C026924098C4D0028E94A /* Model */,
 				15353C922403FBF700A4514D /* Main.storyboard */,
 				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
@@ -92,20 +89,25 @@
 			children = (
 				155C02A1240E830C0028E94A /* ApiClient.swift */,
 				15353CA02403FD3B00A4514D /* SpaceShip.swift */,
-				155C026D2409B2B00028E94A /* Rocket.swift */,
-				155C02732409B7EB0028E94A /* Site.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		155C026A24098C5E0028E94A /* View Controller */ = {
+		155C026A24098C5E0028E94A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */,
 				153870242405987F0077B84F /* MissionDetailViewController.swift */,
 				15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */,
 			);
-			path = "View Controller";
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		15DA25E22411710100A0BB97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5DB30D628DDC4E4334EADA3C /* Pods */ = {
@@ -247,8 +249,6 @@
 				15DA25DF2411105300A0BB97 /* SpaceShipViewController.swift in Sources */,
 				153870252405987F0077B84F /* MissionDetailViewController.swift in Sources */,
 				15353C8F2403FBF700A4514D /* SceneDelegate.swift in Sources */,
-				155C02742409B7EB0028E94A /* Site.swift in Sources */,
-				155C026E2409B2B00028E94A /* Rocket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
