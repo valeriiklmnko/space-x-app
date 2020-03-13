@@ -16,29 +16,26 @@ class ApiClient {
     
     func fetchShips(completionHandler: @escaping ([SpaceShip]?, SpaceError?) -> ()) {
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Custom)
-        AF.request(launchesURL ?? "https://api.spacexdata.com", method: .get)
+        guard let url = launchesURL else {
+            completionHandler(nil, SpaceError.invalidUrl)
+            return
+        }
+        AF.request(url, method: .get)
             .validate()
             .responseDecodable(of: [SpaceShip].self, decoder: decoder) { (response) in
+                var error: SpaceError?
+                var data: [SpaceShip]?
+                let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
                     completionHandler(response.value, nil)
-                    print("Successful request")
+                    print("Successful request with \(String(describing: statusCode)) status code")
                 case .failure:
-                    completionHandler(nil, SpaceError.genericError)
-                    print("Request failed \(SpaceError.genericError)")
+                    data = response.value
+                    error = SpaceError.getSpaceError(statusCode: statusCode, data: data)
+                    completionHandler(nil, error)
+                    print("Request failed with \(String(describing: statusCode)) status code")
                 }
-        }
-    }
-    
-    // MARK: Error mapping
-    enum SpaceError: Error {
-        case genericError
-        
-        func getError() -> String {
-            switch self {
-            case .genericError:
-                return "Sorry bro"
-            }
         }
     }
     

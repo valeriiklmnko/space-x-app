@@ -17,6 +17,7 @@
 		153870252405987F0077B84F /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870242405987F0077B84F /* MissionDetailViewController.swift */; };
 		155C02A2240E830C0028E94A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C02A1240E830C0028E94A /* ApiClient.swift */; };
 		15DA25DF2411105300A0BB97 /* SpaceShipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */; };
+		15DABBB72419657800380375 /* SpaceShipError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DABBB62419657800380375 /* SpaceShipError.swift */; };
 		2D943FDA842C1F86CD3249F4 /* Pods_space_x_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23B5E55469F0B508CE4AEDC /* Pods_space_x_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		153870242405987F0077B84F /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
 		155C02A1240E830C0028E94A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipViewController.swift; sourceTree = "<group>"; };
+		15DABBB62419657800380375 /* SpaceShipError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipError.swift; sourceTree = "<group>"; };
 		19970148C9AE9D866075CCA7 /* Pods-space-x-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-space-x-app.debug.xcconfig"; path = "Target Support Files/Pods-space-x-app/Pods-space-x-app.debug.xcconfig"; sourceTree = "<group>"; };
 		217C178B0A77EDD0F8E4823D /* Pods-space-x-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-space-x-app.release.xcconfig"; path = "Target Support Files/Pods-space-x-app/Pods-space-x-app.release.xcconfig"; sourceTree = "<group>"; };
 		A23B5E55469F0B508CE4AEDC /* Pods_space_x_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_space_x_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 			children = (
 				155C02A1240E830C0028E94A /* ApiClient.swift */,
 				15353CA02403FD3B00A4514D /* SpaceShip.swift */,
+				15DABBB62419657800380375 /* SpaceShipError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15353CA12403FD3B00A4514D /* SpaceShip.swift in Sources */,
+				15DABBB72419657800380375 /* SpaceShipError.swift in Sources */,
 				155C02A2240E830C0028E94A /* ApiClient.swift in Sources */,
 				15353C8D2403FBF700A4514D /* AppDelegate.swift in Sources */,
 				15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */,

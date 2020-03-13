@@ -15,7 +15,7 @@ class SpaceShipViewController: UIViewController {
     
     // MARK: Variables and Constants
     var fetchedShips = [SpaceShip]()
-    var fetchedShipsData = [SpaceShip]()
+    var storedShipsData = [SpaceShip]()
     private let apiClient = ApiClient.shared
     
     override func viewDidLoad() {
@@ -27,10 +27,10 @@ class SpaceShipViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func filterButton(_ sender: Any) {
-        showActionSheet()
+        self.showActionSheet()
     }
     @IBAction func resetFilterButton(_ sender: Any) {
-        showResetActionSheet()
+        self.showResetActionSheet()
     }
     
     // MARK: Methods
@@ -40,13 +40,14 @@ class SpaceShipViewController: UIViewController {
             completionHandler: { (result, error) in
                 self.hideLoadingHUD()
                 guard let result = result else {
-                    self.showAlert(message: error?.getError())
+                    self.showAlert(message: error?.getSpaceErrorString())
                     return
                 }
                 self.fetchedShips = result
-                self.fetchedShipsData = self.fetchedShips
+                self.storedShipsData = self.fetchedShips
                 self.spaceShipTableView.reloadData()
-        })
+            }
+        )
     }
 }
 
@@ -87,7 +88,8 @@ extension SpaceShipViewController {
             style: .cancel,
             handler: { _ in
                 alert.dismiss(animated: true, completion: nil)
-        }))
+            }
+        ))
         self.present(
             alert,
             animated: true,
@@ -106,19 +108,22 @@ extension SpaceShipViewController {
             style: .default,
             handler: { _ in
                 self.filterShipsByMissionName()
-        }))
+            }
+        ))
         actionSheet.addAction(UIAlertAction(
             title: "By Launch Year",
             style: .default,
             handler: { _ in
                 self.filterShipsByLaunchYear()
-        }))
+            }
+        ))
         actionSheet.addAction(UIAlertAction(
             title: "Cancel",
             style: .cancel,
             handler: { _ in
                 actionSheet.dismiss(animated: true, completion: nil)
-        }))
+            }
+        ))
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -133,13 +138,15 @@ extension SpaceShipViewController {
             style: .default,
             handler: { _ in
                 self.resetFilter()
-        }))
+            }
+        ))
         actionSheet.addAction(UIAlertAction(
             title: "Cancel",
             style: .cancel,
             handler: { _ in
                 actionSheet.dismiss(animated: true, completion: nil)
-        }))
+            }
+        ))
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -157,24 +164,18 @@ extension SpaceShipViewController {
 extension SpaceShipViewController {
     // MARK: Filtering Methods
     func filterShipsByMissionName() {
-        let sortedShipsByMissionName = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
-            shipOne.missionName < shipTwo.missionName
-        })
-        fetchedShips = sortedShipsByMissionName
+        self.fetchedShips = fetchedShips.sorted(by: { $0.missionName < $1.missionName })
         self.spaceShipTableView.reloadData()
     }
     
     func filterShipsByLaunchYear() {
-        fetchedShips = fetchedShipsData
-        let sortedShipsByLaunchYear = fetchedShips.sorted(by: { (shipOne, shipTwo) -> Bool in
-            shipOne.launchYear < shipTwo.launchYear
-        })
-        fetchedShips = sortedShipsByLaunchYear
+        self.fetchedShips = storedShipsData
+        self.fetchedShips = fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
         self.spaceShipTableView.reloadData()
     }
     
     func resetFilter() {
-        fetchedShips = fetchedShipsData
+        self.fetchedShips = storedShipsData
         self.spaceShipTableView.reloadData()
     }
 }
