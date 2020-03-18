@@ -16,7 +16,7 @@ class SpaceShip: Codable {
     let launchSite: Site
     
     enum CodingKeys: String, CodingKey {
-        case rocket = "rocket"
+        case rocket
         case launchDate = "launch_date_utc"
         case launchYear = "launch_year"
         case missionName = "mission_name"

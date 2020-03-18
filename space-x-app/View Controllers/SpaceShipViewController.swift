@@ -14,7 +14,11 @@ class SpaceShipViewController: UIViewController {
     @IBOutlet weak var spaceShipTableView: UITableView!
     
     // MARK: Variables and Constants
-    var fetchedShips = [SpaceShip]()
+    var fetchedShips = [SpaceShip]() {
+        didSet {
+            self.spaceShipTableView.reloadData()
+        }
+    }
     var storedShipsData = [SpaceShip]()
     private let apiClient = ApiClient.shared
     
@@ -45,7 +49,6 @@ class SpaceShipViewController: UIViewController {
                 }
                 self.fetchedShips = result
                 self.storedShipsData = self.fetchedShips
-                self.spaceShipTableView.reloadData()
             }
         )
     }
@@ -78,9 +81,10 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
 extension SpaceShipViewController {
     // MARK: Alerts and Action Sheets
     func showAlert(message: String?) {
+        let alertMessage = message ?? "Default"
         let alert = UIAlertController(
             title: "Error",
-            message: message,
+            message: alertMessage,
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(
@@ -165,17 +169,14 @@ extension SpaceShipViewController {
     // MARK: Filtering Methods
     func filterShipsByMissionName() {
         self.fetchedShips = fetchedShips.sorted(by: { $0.missionName < $1.missionName })
-        self.spaceShipTableView.reloadData()
     }
     
     func filterShipsByLaunchYear() {
         self.fetchedShips = storedShipsData
         self.fetchedShips = fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
-        self.spaceShipTableView.reloadData()
     }
     
     func resetFilter() {
         self.fetchedShips = storedShipsData
-        self.spaceShipTableView.reloadData()
     }
 }

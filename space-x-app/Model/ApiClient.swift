@@ -23,18 +23,22 @@ class ApiClient {
         AF.request(url, method: .get)
             .validate()
             .responseDecodable(of: [SpaceShip].self, decoder: decoder) { (response) in
-                var error: SpaceError?
-                var data: [SpaceShip]?
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
-                    completionHandler(response.value, nil)
-                    print("Successful request with \(String(describing: statusCode)) status code")
+                    if let error = SpaceError.getSpaceError(statusCode: statusCode, data: response.value) {
+                        completionHandler(nil, error)
+                    } else {
+                        completionHandler(response.value, nil)
+                    }
                 case .failure:
-                    data = response.value
-                    error = SpaceError.getSpaceError(statusCode: statusCode, data: data)
-                    completionHandler(nil, error)
-                    print("Request failed with \(String(describing: statusCode)) status code")
+                    completionHandler(
+                        nil,
+                        SpaceError.getSpaceError(
+                            statusCode: statusCode,
+                            data: response.value
+                        )
+                    )
                 }
         }
     }
