@@ -14,6 +14,8 @@ class ApiClient {
     let launchesURL = URL(string: "https://api.spacexdata.com/v3/launches")
     let decoder = JSONDecoder()
     
+    private init() {}
+    
     func fetchShips(completionHandler: @escaping ([SpaceShip]?, SpaceError?) -> ()) {
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Custom)
         guard let url = launchesURL else {
@@ -42,8 +44,6 @@ class ApiClient {
                 }
         }
     }
-    
-    private init() {}
 }
 
 extension DateFormatter {

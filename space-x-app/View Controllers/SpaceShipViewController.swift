@@ -14,19 +14,15 @@ class SpaceShipViewController: UIViewController {
     @IBOutlet weak var spaceShipTableView: UITableView!
     
     // MARK: Variables and Constants
-    var fetchedShips = [SpaceShip]() {
-        didSet {
-            self.spaceShipTableView.reloadData()
-        }
-    }
-    var storedShipsData = [SpaceShip]()
-    private let apiClient = ApiClient.shared
+    lazy private(set) var viewModel = SpaceShipViewModel(apiClient: ApiClient.shared, delegate: self)
+    
+    private let userDefaultsStorage = UserDefaultsStorage(defaults: UserDefaults.standard)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        spaceShipTableView.delegate = self
-        spaceShipTableView.dataSource = self
-        fetchShips()
+        self.spaceShipTableView.delegate = self
+        self.spaceShipTableView.dataSource = self
+        self.viewModel.fetchShips()
     }
     
     // MARK: Actions
@@ -36,33 +32,17 @@ class SpaceShipViewController: UIViewController {
     @IBAction func resetFilterButton(_ sender: Any) {
         self.showResetActionSheet()
     }
-    
-    // MARK: Methods
-    func fetchShips() {
-        self.showLoadingHUD()
-        apiClient.fetchShips(
-            completionHandler: { (result, error) in
-                self.hideLoadingHUD()
-                guard let result = result else {
-                    self.showAlert(message: error?.getSpaceErrorString())
-                    return
-                }
-                self.fetchedShips = result
-                self.storedShipsData = self.fetchedShips
-            }
-        )
-    }
 }
 
 extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedShips.count
+        return self.viewModel.fetchedShips.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as? SpaceShipTableViewCell {
-            cell.configSpaceShipCell(spaceShip: fetchedShips[indexPath.row])
+            cell.configSpaceShipCell(spaceShip: self.viewModel.fetchedShips[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -71,7 +51,7 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if let detailViewController = mainStoryboard.instantiateViewController(identifier: "MissionDetailViewController") as? MissionDetailViewController {
-            detailViewController.selectedSpaceShip = fetchedShips[indexPath.row]
+            detailViewController.selectedSpaceShip = self.viewModel.fetchedShips[indexPath.row]
             self.navigationController?.pushViewController(detailViewController, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
@@ -79,28 +59,7 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SpaceShipViewController {
-    // MARK: Alerts and Action Sheets
-    func showAlert(message: String?) {
-        let alertMessage = message ?? "Default"
-        let alert = UIAlertController(
-            title: "Error",
-            message: alertMessage,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "Close",
-            style: .cancel,
-            handler: { _ in
-                alert.dismiss(animated: true, completion: nil)
-            }
-        ))
-        self.present(
-            alert,
-            animated: true,
-            completion: nil
-        )
-    }
-    
+    // MARK: Action Sheets
     func showActionSheet() {
         let actionSheet = UIAlertController(
             title: "Space Ships filter",
@@ -153,30 +112,89 @@ extension SpaceShipViewController {
         ))
         self.present(actionSheet, animated: true, completion: nil)
     }
-    
-    // MARK: Spinner Methods
-    func showLoadingHUD() {
-        let hud = MBProgressHUD.showAdded(to: spaceShipTableView, animated: true)
-        hud.label.text = "Loading..."
-    }
-    
-    func hideLoadingHUD() {
-        MBProgressHUD.hide(for: spaceShipTableView, animated: true)
-    }
 }
 
 extension SpaceShipViewController {
     // MARK: Filtering Methods
     func filterShipsByMissionName() {
-        self.fetchedShips = fetchedShips.sorted(by: { $0.missionName < $1.missionName })
+        self.viewModel.fetchedShips = self.viewModel.fetchedShips.sorted(by: { $0.missionName < $1.missionName })
+        self.userDefaultsStorage.saveFilter(
+            value: UserDefaultsStorage.FilterValues.byMissionName.rawValue,
+            key: self.userDefaultsStorage.filterKey
+        )
+        self.spaceShipTableView.reloadData()
     }
     
     func filterShipsByLaunchYear() {
-        self.fetchedShips = storedShipsData
-        self.fetchedShips = fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
+        self.viewModel.fetchedShips = self.viewModel.storedShipsData
+        self.viewModel.fetchedShips = self.viewModel.fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
+        self.userDefaultsStorage.saveFilter(
+            value: UserDefaultsStorage.FilterValues.byLaunchYear.rawValue,
+            key: self.userDefaultsStorage.filterKey
+        )
+        self.spaceShipTableView.reloadData()
     }
     
     func resetFilter() {
-        self.fetchedShips = storedShipsData
+        self.viewModel.fetchedShips = self.viewModel.storedShipsData
+        self.userDefaultsStorage.saveFilter(
+            value: UserDefaultsStorage.FilterValues.defaultState.rawValue,
+            key: self.userDefaultsStorage.filterKey
+        )
+        self.spaceShipTableView.reloadData()
+    }
+}
+
+//MARK: SpaceShipViewModelDelegate
+
+extension SpaceShipViewController: SpaceShipViewModelDelegate {
+
+    func refreshData() {
+        if let filter = self.userDefaultsStorage.getFilter(key: userDefaultsStorage.filterKey) {
+            print(filter)
+            switch filter {
+            case UserDefaultsStorage.FilterValues.byMissionName.rawValue:
+                filterShipsByMissionName()
+            case UserDefaultsStorage.FilterValues.byLaunchYear.rawValue:
+                filterShipsByLaunchYear()
+            case UserDefaultsStorage.FilterValues.defaultState.rawValue:
+                self.spaceShipTableView.reloadData()
+            default:
+                self.spaceShipTableView.reloadData()
+            }
+        } else {
+            self.spaceShipTableView.reloadData()
+        }
+    }
+
+    func showAlert(message: String?) {
+        let alertMessage = message ?? "Default"
+        let alert = UIAlertController(
+            title: "Error",
+            message: alertMessage,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "Close",
+            style: .cancel,
+            handler: { _ in
+                alert.dismiss(animated: true, completion: nil)
+            }
+        ))
+        self.present(
+            alert,
+            animated: true,
+            completion: nil
+        )
+    }
+
+    // MARK: Spinner Methods
+    func showLoadingHUD() {
+        let hud = MBProgressHUD.showAdded(to: spaceShipTableView, animated: true)
+        hud.label.text = "Loading..."
+    }
+
+    func hideLoadingHUD() {
+        MBProgressHUD.hide(for: spaceShipTableView, animated: true)
     }
 }
