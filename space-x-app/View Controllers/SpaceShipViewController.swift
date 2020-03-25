@@ -16,8 +16,6 @@ class SpaceShipViewController: UIViewController {
     // MARK: Variables and Constants
     lazy private(set) var viewModel = SpaceShipViewModel(apiClient: ApiClient.shared, delegate: self)
     
-    private let userDefaultsStorage = UserDefaultsStorage(defaults: UserDefaults.standard)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spaceShipTableView.delegate = self
@@ -70,14 +68,14 @@ extension SpaceShipViewController {
             title: "By Mission name",
             style: .default,
             handler: { _ in
-                self.filterShipsByMissionName()
+                self.viewModel.filterShipsByMissionName()
             }
         ))
         actionSheet.addAction(UIAlertAction(
             title: "By Launch Year",
             style: .default,
             handler: { _ in
-                self.filterShipsByLaunchYear()
+                self.viewModel.filterShipsByLaunchYear()
             }
         ))
         actionSheet.addAction(UIAlertAction(
@@ -100,7 +98,7 @@ extension SpaceShipViewController {
             title: "Reset",
             style: .default,
             handler: { _ in
-                self.resetFilter()
+                self.viewModel.resetFilter()
             }
         ))
         actionSheet.addAction(UIAlertAction(
@@ -114,57 +112,10 @@ extension SpaceShipViewController {
     }
 }
 
-extension SpaceShipViewController {
-    // MARK: Filtering Methods
-    func filterShipsByMissionName() {
-        self.viewModel.fetchedShips = self.viewModel.fetchedShips.sorted(by: { $0.missionName < $1.missionName })
-        self.userDefaultsStorage.saveFilter(
-            value: UserDefaultsStorage.FilterValues.byMissionName.rawValue,
-            key: self.userDefaultsStorage.filterKey
-        )
-        self.spaceShipTableView.reloadData()
-    }
-    
-    func filterShipsByLaunchYear() {
-        self.viewModel.fetchedShips = self.viewModel.storedShipsData
-        self.viewModel.fetchedShips = self.viewModel.fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
-        self.userDefaultsStorage.saveFilter(
-            value: UserDefaultsStorage.FilterValues.byLaunchYear.rawValue,
-            key: self.userDefaultsStorage.filterKey
-        )
-        self.spaceShipTableView.reloadData()
-    }
-    
-    func resetFilter() {
-        self.viewModel.fetchedShips = self.viewModel.storedShipsData
-        self.userDefaultsStorage.saveFilter(
-            value: UserDefaultsStorage.FilterValues.defaultState.rawValue,
-            key: self.userDefaultsStorage.filterKey
-        )
-        self.spaceShipTableView.reloadData()
-    }
-}
-
 //MARK: SpaceShipViewModelDelegate
-
 extension SpaceShipViewController: SpaceShipViewModelDelegate {
-
     func refreshData() {
-        if let filter = self.userDefaultsStorage.getFilter(key: userDefaultsStorage.filterKey) {
-            print(filter)
-            switch filter {
-            case UserDefaultsStorage.FilterValues.byMissionName.rawValue:
-                filterShipsByMissionName()
-            case UserDefaultsStorage.FilterValues.byLaunchYear.rawValue:
-                filterShipsByLaunchYear()
-            case UserDefaultsStorage.FilterValues.defaultState.rawValue:
-                self.spaceShipTableView.reloadData()
-            default:
-                self.spaceShipTableView.reloadData()
-            }
-        } else {
-            self.spaceShipTableView.reloadData()
-        }
+        self.spaceShipTableView.reloadData()
     }
 
     func showAlert(message: String?) {

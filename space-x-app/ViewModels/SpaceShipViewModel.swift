@@ -19,21 +19,21 @@ class SpaceShipViewModel {
 
     private let apiClient: ApiClient
     weak var delegate: SpaceShipViewModelDelegate?
+    let userDefaultsStorage = UserDefaultsStorage(defaults: UserDefaults.standard)
 
     init(apiClient: ApiClient, delegate: SpaceShipViewModelDelegate?) {
         self.apiClient = apiClient
         self.delegate = delegate
     }
 
-    
-    var fetchedShips = [SpaceShip]()
-//    var fetchedShips = [SpaceShip]() {
-//        didSet {
-//            self.delegate?.refreshData()
-//        }
-//    }
+    var fetchedShips = [SpaceShip]() {
+        didSet {
+            self.delegate?.refreshData()
+        }
+    }
     
     var storedShipsData = [SpaceShip]()
+    var isInitialDataLoad = true
 
     func fetchShips() {
         self.delegate?.showLoadingHUD()
@@ -45,9 +45,46 @@ class SpaceShipViewModel {
                     return
                 }
                 self.fetchedShips = result
-                self.storedShipsData = self.fetchedShips
+                self.storedShipsData = result
                 self.delegate?.refreshData()
+                if self.isInitialDataLoad {
+                    self.isInitialDataLoad = false
+                    self.setInitialFilter()
+                }
             }
         )
+    }
+        
+    func setInitialFilter() {
+        if let filter = userDefaultsStorage.getFilter() {
+            print(filter)
+            switch filter {
+            case .byMissionName:
+                self.filterShipsByMissionName()
+            case .byLaunchYear:
+                self.filterShipsByLaunchYear()
+            case .defaultState:
+                self.delegate?.refreshData()
+            }
+        } else {
+            self.delegate?.refreshData()
+        }
+    }
+    
+    // MARK: Filtering Methods
+    func filterShipsByMissionName() {
+        self.fetchedShips = self.fetchedShips.sorted(by: { $0.missionName < $1.missionName })
+        self.userDefaultsStorage.save(filter: .byMissionName)
+    }
+        
+    func filterShipsByLaunchYear() {
+        self.fetchedShips = self.storedShipsData
+        self.fetchedShips = self.fetchedShips.sorted(by: { $0.launchYear < $1.launchYear })
+        self.userDefaultsStorage.save(filter: .byLaunchYear)
+    }
+        
+    func resetFilter() {
+        self.fetchedShips = self.storedShipsData
+        self.userDefaultsStorage.save(filter: .defaultState)
     }
 }
