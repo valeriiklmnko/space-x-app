@@ -16,6 +16,14 @@
 		15353CA72404726300A4514D /* SpaceShipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */; };
 		153870252405987F0077B84F /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153870242405987F0077B84F /* MissionDetailViewController.swift */; };
 		155C02A2240E830C0028E94A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C02A1240E830C0028E94A /* ApiClient.swift */; };
+		15998628242CBCEC00A04C33 /* Launches.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15998627242CBCEC00A04C33 /* Launches.storyboard */; };
+		1599862A242CBCF900A04C33 /* Rockets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15998629242CBCF900A04C33 /* Rockets.storyboard */; };
+		1599862C242CBE9400A04C33 /* LaunchDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1599862B242CBE9400A04C33 /* LaunchDetail.storyboard */; };
+		1599862E242CC34800A04C33 /* RocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1599862D242CC34800A04C33 /* RocketsViewController.swift */; };
+		15998630242CD30B00A04C33 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1599862F242CD30B00A04C33 /* ModalViewController.swift */; };
+		15998632242CD3DD00A04C33 /* Modal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15998631242CD3DD00A04C33 /* Modal.storyboard */; };
+		15998634242CD80100A04C33 /* RocketDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15998633242CD80100A04C33 /* RocketDetail.storyboard */; };
+		15998636242CD88900A04C33 /* RocketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15998635242CD88900A04C33 /* RocketDetailViewController.swift */; };
 		15A5FED4242388C700BD5135 /* SpaceShipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A5FED3242388C700BD5135 /* SpaceShipViewModel.swift */; };
 		15A5FED72423A93700BD5135 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A5FED62423A93700BD5135 /* UserDefaultsStorage.swift */; };
 		15A5FEDF242770FD00BD5135 /* SpaceX_App_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A5FEDE242770FD00BD5135 /* SpaceX_App_Tests.swift */; };
@@ -46,6 +54,14 @@
 		15353CA62404726300A4514D /* SpaceShipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipTableViewCell.swift; sourceTree = "<group>"; };
 		153870242405987F0077B84F /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
 		155C02A1240E830C0028E94A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		15998627242CBCEC00A04C33 /* Launches.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launches.storyboard; sourceTree = "<group>"; };
+		15998629242CBCF900A04C33 /* Rockets.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rockets.storyboard; sourceTree = "<group>"; };
+		1599862B242CBE9400A04C33 /* LaunchDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchDetail.storyboard; sourceTree = "<group>"; };
+		1599862D242CC34800A04C33 /* RocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsViewController.swift; sourceTree = "<group>"; };
+		1599862F242CD30B00A04C33 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		15998631242CD3DD00A04C33 /* Modal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Modal.storyboard; sourceTree = "<group>"; };
+		15998633242CD80100A04C33 /* RocketDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RocketDetail.storyboard; sourceTree = "<group>"; };
+		15998635242CD88900A04C33 /* RocketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailViewController.swift; sourceTree = "<group>"; };
 		15A5FED3242388C700BD5135 /* SpaceShipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipViewModel.swift; sourceTree = "<group>"; };
 		15A5FED62423A93700BD5135 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		15A5FEDC242770FD00BD5135 /* SpaceX-App-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpaceX-App-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,9 +122,9 @@
 				15DA25E22411710100A0BB97 /* Views */,
 				155C026A24098C5E0028E94A /* View Controllers */,
 				155C026924098C4D0028E94A /* Model */,
-				15353C922403FBF700A4514D /* Main.storyboard */,
-				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
+				15998626242CBCAD00A04C33 /* Storyboards */,
 				15353C952403FBF800A4514D /* Assets.xcassets */,
+				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
 				15353C9A2403FBF800A4514D /* Info.plist */,
 			);
 			path = "space-x-app";
@@ -130,8 +146,24 @@
 			children = (
 				153870242405987F0077B84F /* MissionDetailViewController.swift */,
 				15DA25DE2411105300A0BB97 /* SpaceShipViewController.swift */,
+				1599862D242CC34800A04C33 /* RocketsViewController.swift */,
+				1599862F242CD30B00A04C33 /* ModalViewController.swift */,
+				15998635242CD88900A04C33 /* RocketDetailViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		15998626242CBCAD00A04C33 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				15353C922403FBF700A4514D /* Main.storyboard */,
+				15998627242CBCEC00A04C33 /* Launches.storyboard */,
+				15998629242CBCF900A04C33 /* Rockets.storyboard */,
+				1599862B242CBE9400A04C33 /* LaunchDetail.storyboard */,
+				15998631242CD3DD00A04C33 /* Modal.storyboard */,
+				15998633242CD80100A04C33 /* RocketDetail.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		15A5FED5242388F800BD5135 /* ViewModels */ = {
@@ -260,8 +292,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				15353C992403FBF800A4514D /* LaunchScreen.storyboard in Resources */,
+				15998634242CD80100A04C33 /* RocketDetail.storyboard in Resources */,
+				15998628242CBCEC00A04C33 /* Launches.storyboard in Resources */,
+				1599862C242CBE9400A04C33 /* LaunchDetail.storyboard in Resources */,
 				15353C962403FBF800A4514D /* Assets.xcassets in Resources */,
 				15353C942403FBF700A4514D /* Main.storyboard in Resources */,
+				15998632242CD3DD00A04C33 /* Modal.storyboard in Resources */,
+				1599862A242CBCF900A04C33 /* Rockets.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,8 +359,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				15A5FED72423A93700BD5135 /* UserDefaultsStorage.swift in Sources */,
+				15998636242CD88900A04C33 /* RocketDetailViewController.swift in Sources */,
+				1599862E242CC34800A04C33 /* RocketsViewController.swift in Sources */,
 				15353CA12403FD3B00A4514D /* SpaceShip.swift in Sources */,
 				15A5FED4242388C700BD5135 /* SpaceShipViewModel.swift in Sources */,
+				15998630242CD30B00A04C33 /* ModalViewController.swift in Sources */,
 				15DABBB72419657800380375 /* SpaceShipError.swift in Sources */,
 				155C02A2240E830C0028E94A /* ApiClient.swift in Sources */,
 				15353C8D2403FBF700A4514D /* AppDelegate.swift in Sources */,

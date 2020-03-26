@@ -57,7 +57,6 @@ class SpaceShipViewModel {
         
     func setInitialFilter() {
         if let filter = userDefaultsStorage.getFilter() {
-            print(filter)
             switch filter {
             case .byMissionName:
                 self.filterShipsByMissionName()

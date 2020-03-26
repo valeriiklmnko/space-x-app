@@ -9,6 +9,7 @@
 import UIKit
 
 class MissionDetailViewController: UIViewController {
+    // MARK: Outlets
     @IBOutlet weak var launchMission: UILabel!
     @IBOutlet weak var missionName: UILabel!
     @IBOutlet weak var launchYear: UILabel!
@@ -29,6 +30,7 @@ class MissionDetailViewController: UIViewController {
     }
     
     func configDetailView() {
+        self.title = selectedSpaceShip?.missionName
         launchMission.text = "Mission:"
         missionName.text = selectedSpaceShip?.missionName
         launchYear.text = "Year:"
