@@ -32,7 +32,7 @@ enum SpaceError: Error {
         default:
             return .genericError
         }
-        return .genericError
+        return nil
     }
 
     func getSpaceErrorString() -> String {
