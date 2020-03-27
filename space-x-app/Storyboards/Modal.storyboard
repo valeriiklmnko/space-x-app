@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUa-Ce-lqU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -10,7 +10,7 @@
         <!--Stupid Modal-->
         <scene sceneID="Luv-Lg-upx">
             <objects>
-                <viewController id="Ah2-7D-VH3" customClass="ModalViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Modal" id="Ah2-7D-VH3" customClass="ModalViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDl-Z3-zNT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                         <viewLayoutGuide key="safeArea" id="wgU-sb-4Qo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Stupid Modal" id="GRb-xg-zH3">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="AMe-Zn-fSS">
+                        <barButtonItem key="rightBarButtonItem" id="AMe-Zn-fSS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rdv-kF-tcZ">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -48,24 +48,6 @@
                 <exit id="hMX-sl-oOS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2600" y="-394.41964285714283"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="weV-d0-JvV">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kUa-Ce-lqU" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hph-YS-A3B">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ah2-7D-VH3" kind="relationship" relationship="rootViewController" id="3Et-7s-DEM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CLO-4m-fqb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1689.8550724637682" y="-394.41964285714283"/>
         </scene>
     </scenes>
 </document>

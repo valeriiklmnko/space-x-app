@@ -36,14 +36,14 @@
                         <viewLayoutGuide key="safeArea" id="Y9y-TM-GEA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rockets" id="m5E-X7-P0z">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="MdV-cA-HkE">
+                        <barButtonItem key="rightBarButtonItem" id="MdV-cA-HkE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uhn-bO-qwJ">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Show Modal"/>
                                 <connections>
-                                    <segue destination="KUH-jD-Ksb" kind="presentation" id="CbL-zJ-Zpv"/>
+                                    <action selector="showModal:" destination="plk-rW-ROV" eventType="touchUpInside" id="JP3-Ny-riV"/>
                                 </connections>
                             </button>
                         </barButtonItem>
