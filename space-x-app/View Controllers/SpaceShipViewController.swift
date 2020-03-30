@@ -10,6 +10,7 @@ import UIKit
 import MBProgressHUD
 
 class SpaceShipViewController: UIViewController {
+    
     // MARK: Outlets
     @IBOutlet weak var spaceShipTableView: UITableView!
     
@@ -30,6 +31,7 @@ class SpaceShipViewController: UIViewController {
 }
 
 extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
+    
     // MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.fetchedShips.count
@@ -54,6 +56,7 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SpaceShipViewController {
+    
     // MARK: Action Sheets
     func showActionSheet() {
         let actionSheet = UIAlertController(
@@ -93,8 +96,9 @@ extension SpaceShipViewController {
     }
 }
 
-//MARK: SpaceShipViewModelDelegate
 extension SpaceShipViewController: SpaceShipViewModelDelegate {
+    
+    // MARK: Delegate Methods
     func refreshData() {
         self.spaceShipTableView.reloadData()
     }

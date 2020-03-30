@@ -10,7 +10,7 @@
         <!--Rocket Detail View Controller-->
         <scene sceneID="rUi-Hi-cHp">
             <objects>
-                <viewController id="dd9-z5-KMa" customClass="RocketDetailViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RocketDetailViewController" id="dd9-z5-KMa" customClass="RocketDetailViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tqx-uc-8si">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

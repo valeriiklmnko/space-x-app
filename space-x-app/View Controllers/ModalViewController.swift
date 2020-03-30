@@ -14,7 +14,6 @@ class ModalViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    // MARK: Actions
     @IBAction func closeModal(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

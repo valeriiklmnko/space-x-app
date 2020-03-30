@@ -8,10 +8,12 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 class ApiClient {
     static let shared = ApiClient()
     let launchesURL = URL(string: "https://api.spacexdata.com/v3/launches")
+    let rocketsURL = URL(string: "https://api.spacexdata.com/v3/rockets")
     let decoder = JSONDecoder()
     
     private init() {}
@@ -42,6 +44,54 @@ class ApiClient {
                         )
                     )
                 }
+        }
+    }
+    
+    func fetchRockets(completionHandler: @escaping ([Rockets]?, SpaceError?) -> ()) {
+        guard let url = rocketsURL else {
+            completionHandler(nil, SpaceError.invalidUrl)
+            return
+        }
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: [Rockets].self) { (response) in
+                let statusCode = response.response?.statusCode
+                switch response.result {
+                case .success:
+                    if let error = SpaceError.getRocketsError(statusCode: statusCode, data: response.value) {
+                        completionHandler(nil, error)
+                    } else {
+                        completionHandler(response.value, nil)
+                    }
+                case .failure:
+                    completionHandler(
+                        nil,
+                        SpaceError.getRocketsError(statusCode: statusCode, data: response.value)
+                    )
+                }
+        }
+    }
+    
+    func fetchRocketImage(url: String?, completionHandler: @escaping (UIImage?, SpaceError?) -> ()) {
+        guard let url = url else {
+            completionHandler(nil, SpaceError.invalidUrl)
+            return
+        }
+        AF.request(url).responseImage { response in
+            let statusCode = response.response?.statusCode
+            switch response.result {
+            case .success:
+                if let error = SpaceError.getRocketsImageError(statusCode: statusCode, data: response.value) {
+                    completionHandler(nil, error)
+                } else {
+                    completionHandler(response.value, nil)
+                }
+            case .failure:
+                completionHandler(
+                    nil,
+                    SpaceError.getRocketsImageError(statusCode: statusCode, data: response.value)
+                )
+            }
         }
     }
 }

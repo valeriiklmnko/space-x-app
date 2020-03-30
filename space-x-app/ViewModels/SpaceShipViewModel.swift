@@ -37,7 +37,7 @@ class SpaceShipViewModel {
 
     func fetchShips() {
         self.delegate?.showLoadingHUD()
-        apiClient.fetchShips(
+        self.apiClient.fetchShips(
             completionHandler: { (result, error) in
                 self.delegate?.hideLoadingHUD()
                 guard let result = result else {
