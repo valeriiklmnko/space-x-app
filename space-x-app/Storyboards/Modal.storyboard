@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stupid Modal-->
+        <scene sceneID="Luv-Lg-upx">
+            <objects>
+                <viewController storyboardIdentifier="Modal" id="Ah2-7D-VH3" customClass="ModalViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZDl-Z3-zNT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just a stupid modal view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4a-Xi-63T">
+                                <rect key="frame" x="112.5" y="437.5" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="U4a-Xi-63T" firstAttribute="centerY" secondItem="ZDl-Z3-zNT" secondAttribute="centerY" id="fkx-el-VFp"/>
+                            <constraint firstItem="U4a-Xi-63T" firstAttribute="centerX" secondItem="ZDl-Z3-zNT" secondAttribute="centerX" id="tex-Ox-sXW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wgU-sb-4Qo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Stupid Modal" id="GRb-xg-zH3">
+                        <barButtonItem key="rightBarButtonItem" id="AMe-Zn-fSS">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rdv-kF-tcZ">
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeModal:" destination="hMX-sl-oOS" eventType="touchUpInside" id="H0b-nY-gDS"/>
+                                    <action selector="closeModal:" destination="Ah2-7D-VH3" eventType="touchUpInside" id="yQx-Eb-C9G"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZI-Cw-NJR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hMX-sl-oOS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2600" y="-394.41964285714283"/>
+        </scene>
+    </scenes>
+</document>

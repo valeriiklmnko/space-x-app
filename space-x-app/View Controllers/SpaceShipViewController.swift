@@ -27,9 +27,6 @@ class SpaceShipViewController: UIViewController {
     @IBAction func filterButton(_ sender: Any) {
         self.showActionSheet()
     }
-    @IBAction func resetFilterButton(_ sender: Any) {
-        self.showResetActionSheet()
-    }
 }
 
 extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
@@ -47,7 +44,7 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainStoryboard = UIStoryboard(name: "LaunchDetail", bundle: nil)
         if let detailViewController = mainStoryboard.instantiateViewController(identifier: "MissionDetailViewController") as? MissionDetailViewController {
             detailViewController.selectedSpaceShip = self.viewModel.fetchedShips[indexPath.row]
             self.navigationController?.pushViewController(detailViewController, animated: true)
@@ -78,22 +75,6 @@ extension SpaceShipViewController {
                 self.viewModel.filterShipsByLaunchYear()
             }
         ))
-        actionSheet.addAction(UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: { _ in
-                actionSheet.dismiss(animated: true, completion: nil)
-            }
-        ))
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-    
-    func showResetActionSheet() {
-        let actionSheet = UIAlertController(
-            title: "Reset filter",
-            message: "You can reset filter for Ships",
-            preferredStyle: .actionSheet
-        )
         actionSheet.addAction(UIAlertAction(
             title: "Reset",
             style: .default,
