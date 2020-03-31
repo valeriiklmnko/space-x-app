@@ -30,7 +30,7 @@ class ApiClient {
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
-                    if let error = SpaceError.getSpaceError(statusCode: statusCode, data: response.value) {
+                    if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
                         completionHandler(nil, error)
                     } else {
                         completionHandler(response.value, nil)
@@ -38,13 +38,10 @@ class ApiClient {
                 case .failure:
                     completionHandler(
                         nil,
-                        SpaceError.getSpaceError(
-                            statusCode: statusCode,
-                            data: response.value
-                        )
+                        SpaceError.getResponseError(statusCode: statusCode, data: response.data)
                     )
                 }
-        }
+            }
     }
     
     func fetchRockets(completionHandler: @escaping ([Rockets]?, SpaceError?) -> ()) {
@@ -58,7 +55,8 @@ class ApiClient {
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
-                    if let error = SpaceError.getRocketsError(statusCode: statusCode, data: response.value) {
+                    if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
+                        print(error)
                         completionHandler(nil, error)
                     } else {
                         completionHandler(response.value, nil)
@@ -66,10 +64,10 @@ class ApiClient {
                 case .failure:
                     completionHandler(
                         nil,
-                        SpaceError.getRocketsError(statusCode: statusCode, data: response.value)
+                        SpaceError.getResponseError(statusCode: statusCode, data: response.data)
                     )
                 }
-        }
+            }
     }
     
     func fetchRocketImage(url: String?, completionHandler: @escaping (UIImage?, SpaceError?) -> ()) {
@@ -81,7 +79,7 @@ class ApiClient {
             let statusCode = response.response?.statusCode
             switch response.result {
             case .success:
-                if let error = SpaceError.getRocketsImageError(statusCode: statusCode, data: response.value) {
+                if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
                     completionHandler(nil, error)
                 } else {
                     completionHandler(response.value, nil)
@@ -89,7 +87,7 @@ class ApiClient {
             case .failure:
                 completionHandler(
                     nil,
-                    SpaceError.getRocketsImageError(statusCode: statusCode, data: response.value)
+                    SpaceError.getResponseError(statusCode: statusCode, data: response.data)
                 )
             }
         }

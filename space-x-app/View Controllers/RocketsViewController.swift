@@ -66,26 +66,24 @@ extension RocketsViewController: RocketsViewModelDelegate {
     }
     
     func showAlert(message: String?) {
-            func showAlert(message: String?) {
-            let alertMessage = message ?? "Default"
-            let alert = UIAlertController(
-                title: "Error",
-                message: alertMessage,
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(
-                title: "Close",
-                style: .cancel,
-                handler: { _ in
-                    alert.dismiss(animated: true, completion: nil)
-                }
-            ))
-            self.present(
-                alert,
-                animated: true,
-                completion: nil
-            )
-        }
+        let alertMessage = message ?? "Default"
+        let alert = UIAlertController(
+            title: "Error",
+            message: alertMessage,
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "Close",
+            style: .cancel,
+            handler: { _ in
+                alert.dismiss(animated: true, completion: nil)
+            }
+        ))
+        self.present(
+            alert,
+            animated: true,
+            completion: nil
+        )
     }
     
     // MARK: Spinner Methods

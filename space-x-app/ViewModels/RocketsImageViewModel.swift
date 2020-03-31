@@ -6,7 +6,7 @@
 //  Copyright © 2020 Valerii Klymenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RocketsImageViewModel {
     
@@ -23,6 +23,7 @@ class RocketsImageViewModel {
             url: rockets.rocketImages.first,
             completionHandler: { (result, error) in
                 guard let result = result else {
+                    self.collectionViewCell.cellImage.image = UIImage(named:"launch-mission")!
                     return
                 }
                 self.collectionViewCell.cellImage.image = result

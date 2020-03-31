@@ -6,7 +6,7 @@
 //  Copyright © 2020 Valerii Klymenko. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum SpaceError: Error {
     case genericError
@@ -15,47 +15,7 @@ enum SpaceError: Error {
     case noData
     case invalidUrl
 
-    static func getSpaceError(statusCode: Int?, data: [SpaceShip]?) -> SpaceError? {
-        guard let httpStatusCode = statusCode else {
-            return .genericError
-        }
-
-        switch httpStatusCode {
-        case 200:
-            if data == nil {
-                return .noData
-            }
-        case 404:
-            return .pageNotFound
-        case 500:
-            return .internalServerError
-        default:
-            return .genericError
-        }
-        return nil
-    }
-    
-    static func getRocketsError(statusCode: Int?, data: [Rockets]?) -> SpaceError? {
-        guard let httpStatusCode = statusCode else {
-            return .genericError
-        }
-
-        switch httpStatusCode {
-        case 200:
-            if data == nil {
-                return .noData
-            }
-        case 404:
-            return .pageNotFound
-        case 500:
-            return .internalServerError
-        default:
-            return .genericError
-        }
-        return nil
-    }
-    
-    static func getRocketsImageError(statusCode: Int?, data: UIImage?) -> SpaceError? {
+    static func getResponseError(statusCode: Int?, data: Data?) -> SpaceError? {
         guard let httpStatusCode = statusCode else {
             return .genericError
         }
