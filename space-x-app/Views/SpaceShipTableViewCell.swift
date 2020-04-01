@@ -9,6 +9,7 @@
 import UIKit
 
 class SpaceShipTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var missionLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
@@ -16,9 +17,9 @@ class SpaceShipTableViewCell: UITableViewCell {
     @IBOutlet weak var yearTitle: UILabel!
     
     func configSpaceShipCell(spaceShip: SpaceShip) {
-        missionTitle.text = "Mission:"
-        missionLabel.text = spaceShip.missionName
-        yearTitle.text = "Year:"
-        yearLabel.text = spaceShip.launchYear
+        self.missionTitle.text = "Mission:"
+        self.missionLabel.text = spaceShip.missionName
+        self.yearTitle.text = "Year:"
+        self.yearLabel.text = spaceShip.launchYear
     }
 }

@@ -6,5 +6,6 @@ target 'space-x-app' do
   # Pods for space-x-app
   pod 'Alamofire', '~> 5.0'
   pod 'MBProgressHUD', '~> 1.0'
+  pod 'AlamofireImage', '~> 4.0'
 
 end

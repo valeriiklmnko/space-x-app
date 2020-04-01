@@ -9,7 +9,7 @@
 import Foundation
 
 class SpaceShip: Codable {
-    let rocket: Rocket
+    let rocket: SpaceShipRocket
     let launchDate: Date
     let launchYear: String
     let missionName: String
@@ -24,7 +24,7 @@ class SpaceShip: Codable {
     }
 }
 
-class Rocket: Codable {
+class SpaceShipRocket: Codable {
     let rocketName: String
     
     enum CodingKeys: String, CodingKey {

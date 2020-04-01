@@ -9,12 +9,18 @@
 import UIKit
 
 class RocketDetailViewController: UIViewController {
-    // MARK: Outlets
+    
     @IBOutlet weak var rocketName: UILabel!
+    
+    var selectedRocket: Rocket?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Rocket Name"
-        self.rocketName.text = "Name"
+        self.configureRocketDetailView()
+    }
+    
+    func configureRocketDetailView() {
+        self.title = selectedRocket?.rocketName
+        self.rocketName.text = selectedRocket?.rocketName
     }
 }

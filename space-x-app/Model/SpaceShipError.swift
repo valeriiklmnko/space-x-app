@@ -15,7 +15,7 @@ enum SpaceError: Error {
     case noData
     case invalidUrl
 
-    static func getSpaceError(statusCode: Int?, data: [SpaceShip]?) -> SpaceError? {
+    static func getResponseError(statusCode: Int?, data: Data?) -> SpaceError? {
         guard let httpStatusCode = statusCode else {
             return .genericError
         }

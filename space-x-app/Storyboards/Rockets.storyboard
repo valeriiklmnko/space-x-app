@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gn4-2G-roc">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +15,7 @@
                     <tabBarItem key="tabBarItem" title="Rockets" image="rockets" id="j7x-TX-CtE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i8Y-D7-bHY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -30,15 +31,68 @@
             <objects>
                 <viewController id="plk-rW-ROV" customClass="RocketsViewController" customModule="SpaceX_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W8K-2Y-4HZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bmD-mJ-gDi">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="10" sectionInsetReference="layoutMargins" id="sbC-VP-EZh">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RocketCell" id="pnN-N3-hUa" customClass="RocketCollectionViewCell" customModule="SpaceX_App" customModuleProvider="target">
+                                        <rect key="frame" x="28" y="28" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T1T-m9-AT3">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DlP-OP-b4c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="150" id="MQi-k0-2hV"/>
+                                                        <constraint firstAttribute="height" constant="150" id="vNf-Um-pp5"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RocketName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg4-6e-FT3">
+                                                    <rect key="frame" x="26" y="8" width="98" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sg4-6e-FT3" firstAttribute="top" secondItem="T1T-m9-AT3" secondAttribute="top" constant="8" id="2AG-Kk-74x"/>
+                                                <constraint firstItem="DlP-OP-b4c" firstAttribute="centerY" secondItem="T1T-m9-AT3" secondAttribute="centerY" id="Bb1-Ik-RSR"/>
+                                                <constraint firstItem="DlP-OP-b4c" firstAttribute="centerX" secondItem="T1T-m9-AT3" secondAttribute="centerX" id="RnM-8V-JJI"/>
+                                                <constraint firstItem="Sg4-6e-FT3" firstAttribute="centerX" secondItem="T1T-m9-AT3" secondAttribute="centerX" id="v5Q-XU-ovx"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellImageView" destination="DlP-OP-b4c" id="tf5-Vi-hbL"/>
+                                            <outlet property="rocketName" destination="Sg4-6e-FT3" id="POj-7k-Y4p"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Y9y-TM-GEA" firstAttribute="bottom" secondItem="bmD-mJ-gDi" secondAttribute="bottom" id="8So-sN-9ZY"/>
+                            <constraint firstItem="bmD-mJ-gDi" firstAttribute="leading" secondItem="Y9y-TM-GEA" secondAttribute="leading" id="Jvr-6w-dpG"/>
+                            <constraint firstItem="bmD-mJ-gDi" firstAttribute="top" secondItem="Y9y-TM-GEA" secondAttribute="top" id="Leg-Vy-FbS"/>
+                            <constraint firstItem="Y9y-TM-GEA" firstAttribute="trailing" secondItem="bmD-mJ-gDi" secondAttribute="trailing" id="uQb-bc-7c3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y9y-TM-GEA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rockets" id="m5E-X7-P0z">
                         <barButtonItem key="rightBarButtonItem" id="MdV-cA-HkE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uhn-bO-qwJ">
-                                <rect key="frame" x="302" y="7" width="92" height="30"/>
+                                <rect key="frame" x="267" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Show Modal"/>
@@ -48,18 +102,13 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="bmD-mJ-gDi" id="7Tj-kw-hDg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J2-04-D0n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="-392"/>
-        </scene>
-        <!--Modal-->
-        <scene sceneID="Au4-2I-UlR">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Modal" id="KUH-jD-Ksb" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5gp-xe-vRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1589" y="-392"/>
+            <point key="canvasLocation" x="934.78260869565224" y="-392.41071428571428"/>
         </scene>
     </scenes>
     <resources>

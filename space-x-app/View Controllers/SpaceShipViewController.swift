@@ -9,7 +9,8 @@
 import UIKit
 import MBProgressHUD
 
-class SpaceShipViewController: UIViewController {
+class SpaceShipViewController: BaseViewController {
+    
     // MARK: Outlets
     @IBOutlet weak var spaceShipTableView: UITableView!
     
@@ -30,17 +31,18 @@ class SpaceShipViewController: UIViewController {
 }
 
 extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
+    
     // MARK: Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.fetchedShips.count
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as? SpaceShipTableViewCell {
-            cell.configSpaceShipCell(spaceShip: self.viewModel.fetchedShips[indexPath.row])
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as? SpaceShipTableViewCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell.configSpaceShipCell(spaceShip: self.viewModel.fetchedShips[indexPath.row])
+        return cell
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -54,6 +56,7 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension SpaceShipViewController {
+    
     // MARK: Action Sheets
     func showActionSheet() {
         let actionSheet = UIAlertController(
@@ -93,40 +96,22 @@ extension SpaceShipViewController {
     }
 }
 
-//MARK: SpaceShipViewModelDelegate
 extension SpaceShipViewController: SpaceShipViewModelDelegate {
+    
+    // MARK: Delegate Methods
     func refreshData() {
         self.spaceShipTableView.reloadData()
     }
 
-    func showAlert(message: String?) {
-        let alertMessage = message ?? "Default"
-        let alert = UIAlertController(
-            title: "Error",
-            message: alertMessage,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "Close",
-            style: .cancel,
-            handler: { _ in
-                alert.dismiss(animated: true, completion: nil)
-            }
-        ))
-        self.present(
-            alert,
-            animated: true,
-            completion: nil
-        )
+    func showAlertMessage(message: String?) {
+        self.showAlert(message: message)
     }
 
-    // MARK: Spinner Methods
-    func showLoadingHUD() {
-        let hud = MBProgressHUD.showAdded(to: spaceShipTableView, animated: true)
-        hud.label.text = "Loading..."
+    func showSpinner() {
+        self.showLoadingHUD(view: spaceShipTableView)
     }
-
-    func hideLoadingHUD() {
-        MBProgressHUD.hide(for: spaceShipTableView, animated: true)
+    
+    func hideSpinner() {
+        self.hideLoadingHUD(view: spaceShipTableView)
     }
 }
