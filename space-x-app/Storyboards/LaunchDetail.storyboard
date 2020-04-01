@@ -23,8 +23,8 @@
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-4l-kDO">
-                                <rect key="frame" x="178" y="20" width="196" height="89"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-4l-kDO">
+                                <rect key="frame" x="178" y="20" width="196" height="91"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QOV-Jd-KEG" userLabel="Launch Mission">
                                         <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="44"/>
@@ -49,7 +49,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Nll-sL-vpz" userLabel="Launch Year">
-                                        <rect key="frame" x="0.0" y="45" width="84.666666666666671" height="44"/>
+                                        <rect key="frame" x="0.0" y="47" width="84.666666666666671" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="kRu-lL-aGy">
                                                 <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="44"/>
@@ -72,8 +72,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-hf-DY9">
-                                <rect key="frame" x="20" y="178" width="374" height="138"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-hf-DY9">
+                                <rect key="frame" x="20" y="178" width="374" height="142"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hrk-Hx-3Ew" userLabel="Rocket Name">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -98,7 +98,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B19-Kt-hat" userLabel="Launch Date">
-                                        <rect key="frame" x="0.0" y="47" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="49" width="374" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="JRI-d9-1S6">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -120,7 +120,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mNO-Zy-wkY" userLabel="Launch Site">
-                                        <rect key="frame" x="0.0" y="94" width="374" height="44"/>
+                                        <rect key="frame" x="0.0" y="98" width="374" height="44"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KUM-ll-3mw">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
