@@ -12,7 +12,7 @@ protocol SpaceShipViewModelDelegate: AnyObject {
     func refreshData()
     func showLoadingHUD()
     func hideLoadingHUD()
-    func showAlert(message: String?)
+    func showAlertMessage(message: String?)
 }
 
 class SpaceShipViewModel {
@@ -41,7 +41,7 @@ class SpaceShipViewModel {
             completionHandler: { (result, error) in
                 self.delegate?.hideLoadingHUD()
                 guard let result = result else {
-                    self.delegate?.showAlert(message: error?.getSpaceErrorString())
+                    self.delegate?.showAlertMessage(message: error?.getSpaceErrorString())
                     return
                 }
                 self.fetchedShips = result

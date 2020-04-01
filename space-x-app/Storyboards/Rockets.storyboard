@@ -73,7 +73,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="cellImage" destination="DlP-OP-b4c" id="Sc9-2d-wAN"/>
+                                            <outlet property="cellImageView" destination="DlP-OP-b4c" id="tf5-Vi-hbL"/>
                                             <outlet property="rocketName" destination="Sg4-6e-FT3" id="POj-7k-Y4p"/>
                                         </connections>
                                     </collectionViewCell>

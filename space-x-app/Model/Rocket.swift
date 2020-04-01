@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Rockets: Codable {
+class Rocket: Codable {
     let rocketName: String
     let rocketImages: [String]
     

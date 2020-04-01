@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class SpaceShipViewController: UIViewController {
+class SpaceShipViewController: CommonViewController {
     
     // MARK: Outlets
     @IBOutlet weak var spaceShipTableView: UITableView!
@@ -38,11 +38,11 @@ extension SpaceShipViewController: UITableViewDelegate, UITableViewDataSource {
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as? SpaceShipTableViewCell {
-            cell.configSpaceShipCell(spaceShip: self.viewModel.fetchedShips[indexPath.row])
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SpaceShipCell", for: indexPath) as? SpaceShipTableViewCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell.configSpaceShipCell(spaceShip: self.viewModel.fetchedShips[indexPath.row])
+        return cell
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,25 +103,8 @@ extension SpaceShipViewController: SpaceShipViewModelDelegate {
         self.spaceShipTableView.reloadData()
     }
 
-    func showAlert(message: String?) {
-        let alertMessage = message ?? "Default"
-        let alert = UIAlertController(
-            title: "Error",
-            message: alertMessage,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "Close",
-            style: .cancel,
-            handler: { _ in
-                alert.dismiss(animated: true, completion: nil)
-            }
-        ))
-        self.present(
-            alert,
-            animated: true,
-            completion: nil
-        )
+    func showAlertMessage(message: String?) {
+        self.showAlert(message: message)
     }
 
     // MARK: Spinner Methods

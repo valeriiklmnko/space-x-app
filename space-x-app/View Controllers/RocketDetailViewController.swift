@@ -12,7 +12,7 @@ class RocketDetailViewController: UIViewController {
     
     @IBOutlet weak var rocketName: UILabel!
     
-    var selectedRocket: Rockets?
+    var selectedRocket: Rocket?
 
     override func viewDidLoad() {
         super.viewDidLoad()

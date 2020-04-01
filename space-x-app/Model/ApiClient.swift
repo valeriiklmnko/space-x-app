@@ -30,11 +30,10 @@ class ApiClient {
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
-                    if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
-                        completionHandler(nil, error)
-                    } else {
-                        completionHandler(response.value, nil)
-                    }
+                    completionHandler(
+                        response.value,
+                        SpaceError.getResponseError(statusCode: statusCode, data: response.data)
+                    )
                 case .failure:
                     completionHandler(
                         nil,
@@ -44,23 +43,21 @@ class ApiClient {
             }
     }
     
-    func fetchRockets(completionHandler: @escaping ([Rockets]?, SpaceError?) -> ()) {
+    func fetchRockets(completionHandler: @escaping ([Rocket]?, SpaceError?) -> ()) {
         guard let url = rocketsURL else {
             completionHandler(nil, SpaceError.invalidUrl)
             return
         }
         AF.request(url, method: .get)
             .validate()
-            .responseDecodable(of: [Rockets].self) { (response) in
+            .responseDecodable(of: [Rocket].self) { (response) in
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
-                    if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
-                        print(error)
-                        completionHandler(nil, error)
-                    } else {
-                        completionHandler(response.value, nil)
-                    }
+                    completionHandler(
+                        response.value,
+                        SpaceError.getResponseError(statusCode: statusCode, data: response.data)
+                    )
                 case .failure:
                     completionHandler(
                         nil,
@@ -79,11 +76,10 @@ class ApiClient {
             let statusCode = response.response?.statusCode
             switch response.result {
             case .success:
-                if let error = SpaceError.getResponseError(statusCode: statusCode, data: response.data) {
-                    completionHandler(nil, error)
-                } else {
-                    completionHandler(response.value, nil)
-                }
+                completionHandler(
+                    response.value,
+                    SpaceError.getResponseError(statusCode: statusCode, data: response.data)
+                )
             case .failure:
                 completionHandler(
                     nil,

@@ -9,14 +9,14 @@
 import UIKit
 import MBProgressHUD
 
-class RocketsViewController: UIViewController {
+class RocketsViewController: CommonViewController {
     
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: Variables and Constants
-    lazy private(set) var viewModel = RocketsViewModel(apiClient: ApiClient.shared, delegate: self)
-
+    lazy private(set) var viewModel = RocketViewModel(apiClient: ApiClient.shared, delegate: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
@@ -42,11 +42,11 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as? RocketCollectionViewCell {
-            cell.configureRocketCell(rockets: self.viewModel.fetchedRockets[indexPath.item])
-            return cell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RocketCell", for: indexPath) as? RocketCollectionViewCell else {
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
+        cell.configureRocketCell(rocket: self.viewModel.fetchedRockets[indexPath.item])
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -58,32 +58,15 @@ extension RocketsViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
-extension RocketsViewController: RocketsViewModelDelegate {
+extension RocketsViewController: RocketViewModelDelegate {
     
     // MARK: Delegate Methods
     func refreshData() {
         self.collectionView.reloadData()
     }
     
-    func showAlert(message: String?) {
-        let alertMessage = message ?? "Default"
-        let alert = UIAlertController(
-            title: "Error",
-            message: alertMessage,
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(
-            title: "Close",
-            style: .cancel,
-            handler: { _ in
-                alert.dismiss(animated: true, completion: nil)
-            }
-        ))
-        self.present(
-            alert,
-            animated: true,
-            completion: nil
-        )
+    func showAlertMessage(message: String?) {
+        self.showAlert(message: message)
     }
     
     // MARK: Spinner Methods

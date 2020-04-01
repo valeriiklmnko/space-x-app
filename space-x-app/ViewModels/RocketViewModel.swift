@@ -8,24 +8,24 @@
 
 import Foundation
 
-protocol RocketsViewModelDelegate: AnyObject {
+protocol RocketViewModelDelegate: AnyObject {
     func refreshData()
     func showLoadingHUD()
     func hideLoadingHUD()
-    func showAlert(message: String?)
+    func showAlertMessage(message: String?)
 }
 
-class RocketsViewModel {
+class RocketViewModel {
     
     private let apiClient: ApiClient
-    weak var delegate: RocketsViewModelDelegate?
+    weak var delegate: RocketViewModelDelegate?
     
-    init(apiClient: ApiClient, delegate: RocketsViewModelDelegate?) {
+    init(apiClient: ApiClient, delegate: RocketViewModelDelegate?) {
         self.apiClient = apiClient
         self.delegate = delegate
     }
     
-    var fetchedRockets = [Rockets]() {
+    var fetchedRockets = [Rocket]() {
         didSet {
             self.delegate?.refreshData()
         }
@@ -37,7 +37,7 @@ class RocketsViewModel {
             completionHandler: { (result, error) in
                 self.delegate?.hideLoadingHUD()
                 guard let result = result else {
-                    self.delegate?.showAlert(message: error?.getSpaceErrorString())
+                    self.delegate?.showAlertMessage(message: error?.getSpaceErrorString())
                     return
                 }
                 self.fetchedRockets = result

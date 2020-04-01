@@ -11,13 +11,22 @@ import UIKit
 class RocketCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var rocketName: UILabel!
-    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var cellImageView: UIImageView!
     
-    lazy private(set) var viewModel = RocketsImageViewModel(apiClient: ApiClient.shared, collectionViewCell: self)
-
-    func configureRocketCell(rockets: Rockets) {
-        self.viewModel.fetchRocketImage(rockets: rockets)
-        self.rocketName.text = rockets.rocketName
+    func configureRocketCell(rocket: Rocket) {
+        let viewModel = RocketImageViewModel(apiClient: ApiClient.shared, delegate: self)
+        viewModel.fetchRocketImage(rocket: rocket)
+        self.rocketName.text = rocket.rocketName
         self.rocketName.textColor = .blue
+    }
+}
+
+extension RocketCollectionViewCell: RocketImageViewModelDelegate {
+    func setFetchedImage(image: UIImage) {
+        self.cellImageView.image = image
+    }
+    
+    func setDefaultImage() {
+        self.cellImageView.image = UIImage(named:"launch-mission")!
     }
 }
