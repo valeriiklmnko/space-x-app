@@ -10,8 +10,8 @@ import Foundation
 
 protocol RocketViewModelDelegate: AnyObject {
     func refreshData()
-    func showLoadingHUD()
-    func hideLoadingHUD()
+    func showSpinner()
+    func hideSpinner()
     func showAlertMessage(message: String?)
 }
 
@@ -32,10 +32,10 @@ class RocketViewModel {
     }
 
     func fetchRockets() {
-        self.delegate?.showLoadingHUD()
+        self.delegate?.showSpinner()
         self.apiClient.fetchRockets(
             completionHandler: { (result, error) in
-                self.delegate?.hideLoadingHUD()
+                self.delegate?.hideSpinner()
                 guard let result = result else {
                     self.delegate?.showAlertMessage(message: error?.getSpaceErrorString())
                     return

@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import MBProgressHUD
 
-class RocketsViewController: CommonViewController {
+class RocketsViewController: BaseViewController {
     
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -69,13 +68,11 @@ extension RocketsViewController: RocketViewModelDelegate {
         self.showAlert(message: message)
     }
     
-    // MARK: Spinner Methods
-    func showLoadingHUD() {
-        let hud = MBProgressHUD.showAdded(to: collectionView, animated: true)
-        hud.label.text = "Loading..."
+    func showSpinner() {
+        self.showLoadingHUD(view: collectionView)
     }
 
-    func hideLoadingHUD() {
-        MBProgressHUD.hide(for: collectionView, animated: true)
+    func hideSpinner() {
+        self.hideLoadingHUD(view: collectionView)
     }
 }

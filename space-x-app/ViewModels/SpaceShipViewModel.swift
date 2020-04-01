@@ -10,8 +10,8 @@ import Foundation
 
 protocol SpaceShipViewModelDelegate: AnyObject {
     func refreshData()
-    func showLoadingHUD()
-    func hideLoadingHUD()
+    func showSpinner()
+    func hideSpinner()
     func showAlertMessage(message: String?)
 }
 
@@ -36,10 +36,10 @@ class SpaceShipViewModel {
     var isInitialDataLoad = true
 
     func fetchShips() {
-        self.delegate?.showLoadingHUD()
+        self.delegate?.showSpinner()
         self.apiClient.fetchShips(
             completionHandler: { (result, error) in
-                self.delegate?.hideLoadingHUD()
+                self.delegate?.hideSpinner()
                 guard let result = result else {
                     self.delegate?.showAlertMessage(message: error?.getSpaceErrorString())
                     return

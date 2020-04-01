@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MBProgressHUD
 
-class CommonViewController: UIViewController {
+class BaseViewController: UIViewController {
     
     func showAlert(message: String?) {
         let alertMessage = message ?? "Default"
@@ -29,5 +30,15 @@ class CommonViewController: UIViewController {
             animated: true,
             completion: nil
         )
+    }
+    
+    // MARK: Spinner Methods
+    func showLoadingHUD(view: UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.label.text = "Loading..."
+    }
+
+    func hideLoadingHUD(view: UIView) {
+        MBProgressHUD.hide(for: view, animated: true)
     }
 }

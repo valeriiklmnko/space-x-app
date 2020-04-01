@@ -27,6 +27,6 @@ extension RocketCollectionViewCell: RocketImageViewModelDelegate {
     }
     
     func setDefaultImage() {
-        self.cellImageView.image = UIImage(named:"launch-mission")!
+        self.cellImageView.image = UIImage(named:"launch-mission")
     }
 }

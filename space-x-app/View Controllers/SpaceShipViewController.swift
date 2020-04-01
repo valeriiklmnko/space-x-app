@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 
-class SpaceShipViewController: CommonViewController {
+class SpaceShipViewController: BaseViewController {
     
     // MARK: Outlets
     @IBOutlet weak var spaceShipTableView: UITableView!
@@ -107,13 +107,11 @@ extension SpaceShipViewController: SpaceShipViewModelDelegate {
         self.showAlert(message: message)
     }
 
-    // MARK: Spinner Methods
-    func showLoadingHUD() {
-        let hud = MBProgressHUD.showAdded(to: spaceShipTableView, animated: true)
-        hud.label.text = "Loading..."
+    func showSpinner() {
+        self.showLoadingHUD(view: spaceShipTableView)
     }
-
-    func hideLoadingHUD() {
-        MBProgressHUD.hide(for: spaceShipTableView, animated: true)
+    
+    func hideSpinner() {
+        self.hideLoadingHUD(view: spaceShipTableView)
     }
 }
