@@ -19,9 +19,9 @@ class RocketDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showRocket()
-        showTitle()
-        animateRocket()
+        self.showRocket()
+        self.showTitle()
+        self.animateRocket()
     }
 
     override func viewDidLoad() {
@@ -31,8 +31,8 @@ class RocketDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        rocketImageCenterConstraint.constant -= view.bounds.width
-        rocketNameCenterConstraint.constant -= view.bounds.width
+        self.rocketImageCenterConstraint.constant -= view.bounds.width
+        self.rocketNameCenterConstraint.constant -= view.bounds.width
     }
     
     func configureRocketDetailView() {
@@ -41,7 +41,7 @@ class RocketDetailViewController: UIViewController {
     }
     
     func showRocket() {
-        rocketImageCenterConstraint.constant = 0
+        self.rocketImageCenterConstraint.constant = 0
         UIView.animate(
              withDuration: 0.5,
              delay: 0,
@@ -72,7 +72,7 @@ class RocketDetailViewController: UIViewController {
     }
     
     func showTitle() {
-        rocketNameCenterConstraint.constant = 0
+        self.rocketNameCenterConstraint.constant = 0
         UIView.animate(
             withDuration: 0.5,
             delay: 0.3,
