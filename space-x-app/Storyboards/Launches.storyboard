@@ -28,9 +28,10 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket-logo" translatesAutoresizingMaskIntoConstraints="NO" id="rph-s4-40V">
-                                                    <rect key="frame" x="20" y="23" width="50" height="49"/>
+                                                    <rect key="frame" x="20" y="22.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="5nr-Ts-N9L"/>
+                                                        <constraint firstAttribute="height" constant="50" id="7TC-V2-due"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kas-Ek-wOH">
@@ -66,12 +67,10 @@
                                                 <constraint firstItem="MwD-lJ-OKN" firstAttribute="top" secondItem="I8V-Sh-NzB" secondAttribute="top" id="Erg-Qx-1TI"/>
                                                 <constraint firstItem="I8V-Sh-NzB" firstAttribute="leading" secondItem="rph-s4-40V" secondAttribute="trailing" constant="14" id="YQF-Kw-g7I"/>
                                                 <constraint firstItem="5aL-lP-wNO" firstAttribute="top" secondItem="Kas-Ek-wOH" secondAttribute="top" id="czY-O3-kPw"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rph-s4-40V" secondAttribute="bottom" constant="12" id="f6K-Yw-z47"/>
                                                 <constraint firstItem="I8V-Sh-NzB" firstAttribute="top" secondItem="Kas-Ek-wOH" secondAttribute="bottom" constant="4" id="hwH-J3-XZi"/>
                                                 <constraint firstItem="rph-s4-40V" firstAttribute="leading" secondItem="EE5-lt-HUN" secondAttribute="leadingMargin" id="qrf-2h-KmT"/>
                                                 <constraint firstItem="5aL-lP-wNO" firstAttribute="trailing" secondItem="EE5-lt-HUN" secondAttribute="trailingMargin" id="vGp-uY-vbi"/>
                                                 <constraint firstItem="Kas-Ek-wOH" firstAttribute="leading" secondItem="rph-s4-40V" secondAttribute="trailing" constant="14" id="wJd-Fz-x07"/>
-                                                <constraint firstItem="rph-s4-40V" firstAttribute="top" secondItem="EE5-lt-HUN" secondAttribute="topMargin" constant="12" id="wLv-wH-PQ8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
