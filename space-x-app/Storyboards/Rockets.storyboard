@@ -53,10 +53,6 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DlP-OP-b4c">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="MQi-k0-2hV"/>
-                                                        <constraint firstAttribute="height" constant="150" id="vNf-Um-pp5"/>
-                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RocketName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg4-6e-FT3">
                                                     <rect key="frame" x="26" y="8" width="98" height="21"/>
@@ -68,10 +64,20 @@
                                             <constraints>
                                                 <constraint firstItem="Sg4-6e-FT3" firstAttribute="top" secondItem="T1T-m9-AT3" secondAttribute="top" constant="8" id="2AG-Kk-74x"/>
                                                 <constraint firstItem="DlP-OP-b4c" firstAttribute="centerY" secondItem="T1T-m9-AT3" secondAttribute="centerY" id="Bb1-Ik-RSR"/>
+                                                <constraint firstAttribute="bottom" secondItem="DlP-OP-b4c" secondAttribute="bottom" id="OEL-eo-fRk"/>
+                                                <constraint firstAttribute="trailing" secondItem="DlP-OP-b4c" secondAttribute="trailing" id="Oe2-UV-JHX"/>
                                                 <constraint firstItem="DlP-OP-b4c" firstAttribute="centerX" secondItem="T1T-m9-AT3" secondAttribute="centerX" id="RnM-8V-JJI"/>
+                                                <constraint firstItem="DlP-OP-b4c" firstAttribute="top" secondItem="T1T-m9-AT3" secondAttribute="top" id="ehL-pN-m1r"/>
+                                                <constraint firstItem="DlP-OP-b4c" firstAttribute="leading" secondItem="T1T-m9-AT3" secondAttribute="leading" id="hpG-wG-TVk"/>
                                                 <constraint firstItem="Sg4-6e-FT3" firstAttribute="centerX" secondItem="T1T-m9-AT3" secondAttribute="centerX" id="v5Q-XU-ovx"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="cellImageView" destination="DlP-OP-b4c" id="tf5-Vi-hbL"/>
                                             <outlet property="rocketName" destination="Sg4-6e-FT3" id="POj-7k-Y4p"/>
