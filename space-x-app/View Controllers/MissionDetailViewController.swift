@@ -30,16 +30,18 @@ class MissionDetailViewController: UIViewController {
     }
     
     func configDetailView() {
-        self.title = selectedSpaceShip?.missionName
-        launchMission.text = "Mission:"
-        missionName.text = selectedSpaceShip?.missionName
-        launchYear.text = "Year:"
-        year.text = selectedSpaceShip?.launchYear
-        rocketNameTitle.text = "Rocket Name:"
-        rocketName.text = selectedSpaceShip?.rocket.rocketName
-        launchDate.text = "Launch Date:"
-        date.text = dateFormatter.string(from: selectedSpaceShip?.launchDate ?? Date.distantPast)
-        launchSite.text = "Lauch Site:"
-        site.text = selectedSpaceShip?.launchSite.siteName
+        self.title = self.selectedSpaceShip?.missionName
+        self.launchMission.text = "Mission:"
+        self.missionName.text = self.selectedSpaceShip?.missionName
+        self.launchYear.text = "Year:"
+        self.year.text = self.selectedSpaceShip?.launchYear
+        self.rocketNameTitle.text = "Rocket Name:"
+        self.rocketName.text = self.selectedSpaceShip?.rocket.rocketName
+        self.launchDate.text = "Launch Date:"
+        self.date.text = self.dateFormatter.string(
+            from: self.selectedSpaceShip?.launchDate ?? Date.distantPast
+        )
+        self.launchSite.text = "Lauch Site:"
+        self.site.text = self.selectedSpaceShip?.launchSite.siteName
     }
 }

@@ -36,8 +36,8 @@ class RocketDetailViewController: UIViewController {
     }
     
     func configureRocketDetailView() {
-        self.title = selectedRocket?.rocketName
-        self.rocketName.text = selectedRocket?.rocketName
+        self.title = self.selectedRocket?.rocketName
+        self.rocketName.text = self.selectedRocket?.rocketName
     }
     
     func showRocket() {

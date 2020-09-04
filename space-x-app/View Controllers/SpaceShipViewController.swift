@@ -108,10 +108,10 @@ extension SpaceShipViewController: SpaceShipViewModelDelegate {
     }
 
     func showSpinner() {
-        self.showLoadingHUD(view: spaceShipTableView)
+        self.showLoadingHUD(view: self.spaceShipTableView)
     }
     
     func hideSpinner() {
-        self.hideLoadingHUD(view: spaceShipTableView)
+        self.hideLoadingHUD(view: self.spaceShipTableView)
     }
 }

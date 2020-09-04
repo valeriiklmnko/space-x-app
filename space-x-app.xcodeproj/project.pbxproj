@@ -126,13 +126,13 @@
 		15353C8B2403FBF700A4514D /* space-x-app */ = {
 			isa = PBXGroup;
 			children = (
-				15353C8C2403FBF700A4514D /* AppDelegate.swift */,
-				15353C8E2403FBF700A4514D /* SceneDelegate.swift */,
 				15A5FED5242388F800BD5135 /* ViewModels */,
 				15DA25E22411710100A0BB97 /* Views */,
 				155C026A24098C5E0028E94A /* View Controllers */,
 				155C026924098C4D0028E94A /* Model */,
 				15998626242CBCAD00A04C33 /* Storyboards */,
+				15353C8C2403FBF700A4514D /* AppDelegate.swift */,
+				15353C8E2403FBF700A4514D /* SceneDelegate.swift */,
 				15353C952403FBF800A4514D /* Assets.xcassets */,
 				15353C972403FBF800A4514D /* LaunchScreen.storyboard */,
 				15353C9A2403FBF800A4514D /* Info.plist */,

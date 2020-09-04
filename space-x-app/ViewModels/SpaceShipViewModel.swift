@@ -19,7 +19,7 @@ class SpaceShipViewModel {
 
     private let apiClient: ApiClient
     weak var delegate: SpaceShipViewModelDelegate?
-    let userDefaultsStorage = UserDefaultsStorage(defaults: UserDefaults.standard)
+    private let userDefaultsStorage = UserDefaultsStorage(defaults: UserDefaults.standard)
 
     init(apiClient: ApiClient, delegate: SpaceShipViewModelDelegate?) {
         self.apiClient = apiClient
@@ -56,7 +56,7 @@ class SpaceShipViewModel {
     }
         
     func setInitialFilter() {
-        if let filter = userDefaultsStorage.getFilter() {
+        if let filter = self.userDefaultsStorage.getFilter() {
             switch filter {
             case .byMissionName:
                 self.filterShipsByMissionName()

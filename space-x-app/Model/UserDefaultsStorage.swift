@@ -23,12 +23,11 @@ class UserDefaultsStorage {
     }
     
     func save(filter: Filter) {
-        print("saving filter: \(filter.rawValue)")
-        defaults.set(filter.rawValue, forKey: self.filterKey)
+        self.defaults.set(filter.rawValue, forKey: self.filterKey)
     }
     
     func getFilter() -> Filter? {
-        guard let stringValue = defaults.string(forKey: self.filterKey) else {
+        guard let stringValue = self.defaults.string(forKey: self.filterKey) else {
             return Filter.defaultState
         }
         return Filter(rawValue: stringValue) ?? Filter.defaultState

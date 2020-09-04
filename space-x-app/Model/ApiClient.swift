@@ -19,22 +19,24 @@ class ApiClient {
     private init() {}
     
     func fetchShips(completionHandler: @escaping ([SpaceShip]?, SpaceError?) -> ()) {
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Custom)
-        guard let url = launchesURL else {
+        self.decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Custom)
+        guard let url = self.launchesURL else {
             completionHandler(nil, SpaceError.invalidUrl)
             return
         }
         AF.request(url, method: .get)
             .validate()
-            .responseDecodable(of: [SpaceShip].self, decoder: decoder) { (response) in
+            .responseDecodable(of: [SpaceShip].self, decoder: self.decoder) { (response) in
                 let statusCode = response.response?.statusCode
                 switch response.result {
                 case .success:
+                    print(response.result)
                     completionHandler(
                         response.value,
                         SpaceError.getResponseError(statusCode: statusCode, data: response.data)
                     )
                 case .failure:
+                    print(response.result)
                     completionHandler(
                         nil,
                         SpaceError.getResponseError(statusCode: statusCode, data: response.data)
@@ -44,7 +46,7 @@ class ApiClient {
     }
     
     func fetchRockets(completionHandler: @escaping ([Rocket]?, SpaceError?) -> ()) {
-        guard let url = rocketsURL else {
+        guard let url = self.rocketsURL else {
             completionHandler(nil, SpaceError.invalidUrl)
             return
         }
